@@ -12,4 +12,8 @@ public class Node {
     public Node(Object p) {
         data = p;
     }
+
+    public void setObject(Object p) {
+        this.data = p;
+    }
 }

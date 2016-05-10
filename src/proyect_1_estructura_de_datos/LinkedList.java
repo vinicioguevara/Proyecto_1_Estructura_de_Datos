@@ -24,4 +24,25 @@ public class LinkedList {
             size++;
         }
     }
+
+    public Node remove(int p) {
+        if (size == 0) {
+            return null;
+        } else if (size == p) {
+            return null;
+        } else {
+            Node tmp = Head;
+            Node Return;
+            for (int i = 0; i < p - 1; i++) {
+                if (tmp.next != null) {
+                    tmp = tmp.next;
+                } else {
+                    return null;
+                }
+            }
+            Return = tmp.next;
+            tmp.next = null;
+            return Return;
+        }
+    }
 }
