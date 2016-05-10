@@ -6,8 +6,8 @@ package proyect_1_estructura_de_datos;
  */
 public class LinkedList {
 
-    public Node Head = null;
-    public int size = 0;
+    private Node Head = null;
+    private int size = 0;
 
     public LinkedList() {
     }
@@ -19,9 +19,9 @@ public class LinkedList {
         } else {
             Node tmp = Head;
             for (int i = 0; i < size; i++) {
-                tmp = tmp.next;
+                tmp = tmp.getNext();
             }
-            tmp.next = new Node(p);
+            tmp.setNext(new Node(p));
             size++;
         }
     }
@@ -35,18 +35,18 @@ public class LinkedList {
             Node Remove = Head;
             Node Return;
             for (int i = 0; i < p - 1; i++) {
-                if (Remove.next != null) {
-                    Remove = Remove.next;
+                if (Remove.getNext() != null) {
+                    Remove = Remove.getNext();
                 }
             }
-            Return = Remove.next;
-            Remove.next = null;
+            Return = Remove.getNext();
+            Remove.setNext(null);
             return Return;
         }
     }
 
     public Object first() {
-        return Head.data;
+        return Head.getData();
     }
 
     public Node get(int p) {
@@ -57,8 +57,8 @@ public class LinkedList {
         }
         Node tmp = Head;
         for (int i = 0; i < p - 1; i++) {
-            if (tmp.next != null) {
-                tmp = tmp.next;
+            if (tmp.getNext() != null) {
+                tmp = tmp.getNext();
             } else {
                 return null;
             }
