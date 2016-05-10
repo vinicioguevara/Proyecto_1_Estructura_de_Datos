@@ -15,8 +15,13 @@ public class LinkedList {
     public void add(Object p) {
         if (size == 0) {
             Head = new Node(p);
-        }else if (p != null) {
-            
+            size++;
+        } else {
+            Node tmp = Head;
+            for (int i = 0; i < size; i++) {
+                tmp = tmp.next;
+            }
+            size++;
         }
     }
 }

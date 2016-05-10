@@ -76,6 +76,11 @@ public class Empleado {
     public void setTrabaja(boolean trabaja) {
         this.trabaja = trabaja;
     }
+
+    @Override
+    public String toString() {
+        return "Empleado{" + "nombre=" + nombre + ", id=" + id + ", edad=" + edad + ", direccion=" + direccion + ", salario=" + salario + ", trabaja=" + trabaja + '}';
+    }
     
     
     
