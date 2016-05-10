@@ -16,6 +16,7 @@ public class Proyect_1_Estructura_de_Datos {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
     }
     
 }
