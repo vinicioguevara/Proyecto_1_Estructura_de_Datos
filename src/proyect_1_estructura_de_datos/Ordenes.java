@@ -11,12 +11,12 @@ package proyect_1_estructura_de_datos;
  */
 public class Ordenes {
     public int num;
-    public ListaProductos productos; // depende como le pongas a la clase de la lista de productos
+    public LinkedList productos; // depende como le pongas a la clase de la lista de productos
 
     public Ordenes() {
     }
 
-    public Ordenes(int num, ListaProductos productos) {
+    public Ordenes(int num, LinkedList productos) {
         this.num = num;
         this.productos = productos;
     }
@@ -29,11 +29,11 @@ public class Ordenes {
         this.num = num;
     }
 
-    public ListaProductos getProductos() {
+    public LinkedList getProductos() {
         return productos;
     }
 
-    public void setProductos(ListaProductos productos) {
+    public void setProductos(LinkedList productos) {
         this.productos = productos;
     }
 
