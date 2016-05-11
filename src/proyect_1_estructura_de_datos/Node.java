@@ -6,19 +6,19 @@ package proyect_1_estructura_de_datos;
  */
 public class Node {
 
-    private Object data = null;
+    private Object Data = null;
     private Node next = null;
 
-    public Node(Object p) {
-        data = p;
+    public Node(Object Data) {
+        this.Data = Data;
     }
 
     public Object getData() {
-        return data;
+        return Data;
     }
 
-    public void setData(Object data) {
-        this.data = data;
+    public void setData(Object Data) {
+        this.Data = Data;
     }
 
     public Node getNext() {
