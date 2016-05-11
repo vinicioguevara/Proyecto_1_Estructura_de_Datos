@@ -12,29 +12,29 @@ public class LinkedList {
     public LinkedList() {
     }
 
-    public void add(Object p) {
+    public void add(Object Data) {
         if (size == 0) {
-            Head = new Node(p);
+            Head = new Node(Data);
             size++;
         } else {
             Node tmp = Head;
             for (int i = 0; i < size; i++) {
                 tmp = tmp.getNext();
             }
-            tmp.setNext(new Node(p));
+            tmp.setNext(new Node(Data));
             size++;
         }
     }
 
-    public Node remove(int p) {
+    public Node remove(int Index) {
         if (size == 0) {
             return null;
-        } else if (p > size) {
+        } else if (Index > size) {
             return null;
         } else {
             Node Remove = Head;
             Node Return;
-            for (int i = 0; i < p - 1; i++) {
+            for (int i = 0; i < Index - 1; i++) {
                 if (Remove.getNext() != null) {
                     Remove = Remove.getNext();
                 }
@@ -49,14 +49,14 @@ public class LinkedList {
         return Head.getData();
     }
 
-    public Node get(int p) {
+    public Node get(int Index) {
         if (size == 0) {
             return null;
-        } else if (p > size) {
+        } else if (Index > size) {
             return null;
         }
         Node tmp = Head;
-        for (int i = 0; i < p - 1; i++) {
+        for (int i = 0; i < Index; i++) {
             if (tmp.getNext() != null) {
                 tmp = tmp.getNext();
             } else {
@@ -64,5 +64,19 @@ public class LinkedList {
             }
         }
         return null;
+    }
+
+    public boolean indexOf(Object Data) {
+        if (size == 0) {
+            return false;
+        }
+        Node tmp = Head;
+        for (int i = 0; i < size; i++) {
+            if (Data.equals(tmp.getData())) {
+                return true;
+            }
+            tmp = tmp.getNext();
+        }
+        return false;
     }
 }
