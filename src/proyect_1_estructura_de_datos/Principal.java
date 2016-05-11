@@ -517,9 +517,9 @@ public class Principal extends javax.swing.JFrame {
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
         // TODO add your handling code here:
         DefaultComboBoxModel modelo=(DefaultComboBoxModel)cb_eliminar_empleado.getModel();
-           for (int i = 0; i <= ListaEmpleados.getTamano(); i++) {
-             modelo.addElement(i);
-        }       
+           for (int i = 0; i < ListaEmpleados.getTamano(); i++) {
+               modelo.addElement(ListaEmpleados.get(i));
+           }       
         cb_eliminar_empleado.setModel(modelo);
         this.jd_eliminar_empleado.setModal(true);
         this.jd_eliminar_empleado.pack();
@@ -701,5 +701,5 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField txt_nombre_empleado;
     private javax.swing.JTextField txt_nombre_empleado_modificar;
     // End of variables declaration//GEN-END:variables
-    ListaEmpleados ListaEmpleados = new ListaEmpleados();
+    private ListaEmpleados ListaEmpleados = new ListaEmpleados();
 }

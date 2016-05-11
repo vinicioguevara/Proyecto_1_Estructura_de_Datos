@@ -11,8 +11,8 @@ package proyect_1_estructura_de_datos;
  */
 public class ListaEmpleados {
 
-    NodoEmpleado head;
-    protected int tamano;
+    private NodoEmpleado head;
+    private int tamano;
 
     public ListaEmpleados() {
         this.tamano = 0;
@@ -73,5 +73,17 @@ public class ListaEmpleados {
         }
     }
 
-   
+    public Object get(int Posicion) {
+        if (tamano == 0) {
+            return null;
+        } else if (tamano == Posicion) {
+            return head.getEmpleado();
+        } else {
+            NodoEmpleado tmp = head;
+            for (int i = 0; i < Posicion; i++) {
+                tmp = tmp.getNext();
+            }
+            return tmp.getEmpleado();
+        }
+    }
 }
