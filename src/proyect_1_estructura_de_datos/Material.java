@@ -10,11 +10,13 @@ public class Material {
     String Descripcion = "";
     String Marca = "";
     String Serie = "";
+    int Cantidad;
 
-    public Material(String Nombre, String Descripcion, String Marca) {
+    public Material(String Nombre, String Descripcion, String Marca, int Cantidad) {
         this.Nombre = Nombre;
         this.Descripcion = Descripcion;
         this.Marca = Marca;
+        this.Cantidad = Cantidad;
     }
 
     public String getNombre() {

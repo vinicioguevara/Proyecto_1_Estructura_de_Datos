@@ -13,6 +13,9 @@ import javax.swing.DefaultComboBoxModel;
  */
 public class Principal extends javax.swing.JFrame {
 
+    private ListaEmpleados ListaEmpleados = new ListaEmpleados();
+    private LinkedList Productos = new LinkedList();
+
     /**
      * Creates new form Principal
      */
@@ -701,5 +704,4 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField txt_nombre_empleado;
     private javax.swing.JTextField txt_nombre_empleado_modificar;
     // End of variables declaration//GEN-END:variables
-    private ListaEmpleados ListaEmpleados = new ListaEmpleados();
 }
