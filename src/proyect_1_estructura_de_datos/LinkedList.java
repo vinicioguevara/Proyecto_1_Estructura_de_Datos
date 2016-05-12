@@ -12,6 +12,23 @@ public class LinkedList {
     public LinkedList() {
     }
 
+    public Node getHead() {
+        return Head;
+    }
+
+    public void setHead(Node Head) {
+        this.Head = Head;
+    }
+    
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
+    
+    
     public void add(Object Data) {
         if (size == 0) {
             Head = new Node(Data);

@@ -48,4 +48,10 @@ public class Producto {
     public void setMaterial(Material Material) {
         Materiales.add(Material);
     }
+
+    @Override
+    public String toString() {
+        return "Producto{" + "Nombre=" + Nombre + ", Descripcion=" + Descripcion + ", tiempoEnsamblado=" + tiempoEnsamblado ;
+    }
+    
 }

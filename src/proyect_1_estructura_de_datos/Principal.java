@@ -6,6 +6,7 @@
 package proyect_1_estructura_de_datos;
 
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -63,13 +64,24 @@ public class Principal extends javax.swing.JFrame {
         cb_modif_empleado = new javax.swing.JComboBox();
         jButton1 = new javax.swing.JButton();
         jd_agregar_orden = new javax.swing.JDialog();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        txt_numero_orden = new javax.swing.JTextField();
+        jLabel19 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tb_productos = new javax.swing.JTable();
+        bt_guardar_orden = new javax.swing.JButton();
         jd_eliminar_orden = new javax.swing.JDialog();
+        jLabel15 = new javax.swing.JLabel();
+        cb_eliminar_orden = new javax.swing.JComboBox();
+        btn_eliminar_orden = new javax.swing.JButton();
         jd_agregar_materiales = new javax.swing.JDialog();
         jd_modificar_materiales = new javax.swing.JDialog();
         jd_eliminar_materiales = new javax.swing.JDialog();
         jd_agregar_productos = new javax.swing.JDialog();
         jd_modificar_producto = new javax.swing.JDialog();
         jd_eliminar_producto = new javax.swing.JDialog();
+        jLabel18 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -323,26 +335,121 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap(40, Short.MAX_VALUE))
         );
 
+        jLabel16.setText("Agregar Orden");
+
+        jLabel17.setText("Numero de Orden:");
+
+        jLabel19.setText("Selecionar Productos:");
+
+        tb_productos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Seleccionar", "Productos"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Boolean.class, java.lang.Object.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tb_productos);
+        if (tb_productos.getColumnModel().getColumnCount() > 0) {
+            tb_productos.getColumnModel().getColumn(0).setResizable(false);
+        }
+
+        bt_guardar_orden.setText("Guardar Orden");
+
         javax.swing.GroupLayout jd_agregar_ordenLayout = new javax.swing.GroupLayout(jd_agregar_orden.getContentPane());
         jd_agregar_orden.getContentPane().setLayout(jd_agregar_ordenLayout);
         jd_agregar_ordenLayout.setHorizontalGroup(
             jd_agregar_ordenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(jd_agregar_ordenLayout.createSequentialGroup()
+                .addGroup(jd_agregar_ordenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_agregar_ordenLayout.createSequentialGroup()
+                        .addGap(138, 138, 138)
+                        .addComponent(jLabel16))
+                    .addGroup(jd_agregar_ordenLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel17)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txt_numero_orden, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jd_agregar_ordenLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel19))
+                    .addGroup(jd_agregar_ordenLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jd_agregar_ordenLayout.createSequentialGroup()
+                        .addGap(150, 150, 150)
+                        .addComponent(bt_guardar_orden)))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         jd_agregar_ordenLayout.setVerticalGroup(
             jd_agregar_ordenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(jd_agregar_ordenLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel16)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jd_agregar_ordenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel17)
+                    .addComponent(txt_numero_orden, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel19)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addComponent(bt_guardar_orden)
+                .addGap(24, 24, 24))
         );
+
+        jLabel15.setText("Eliminar Orden");
+
+        btn_eliminar_orden.setText("Eliminar Orden");
+        btn_eliminar_orden.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_eliminar_ordenMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jd_eliminar_ordenLayout = new javax.swing.GroupLayout(jd_eliminar_orden.getContentPane());
         jd_eliminar_orden.getContentPane().setLayout(jd_eliminar_ordenLayout);
         jd_eliminar_ordenLayout.setHorizontalGroup(
             jd_eliminar_ordenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(jd_eliminar_ordenLayout.createSequentialGroup()
+                .addGroup(jd_eliminar_ordenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_eliminar_ordenLayout.createSequentialGroup()
+                        .addGap(141, 141, 141)
+                        .addComponent(jLabel15))
+                    .addGroup(jd_eliminar_ordenLayout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(cb_eliminar_orden, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jd_eliminar_ordenLayout.createSequentialGroup()
+                        .addGap(149, 149, 149)
+                        .addComponent(btn_eliminar_orden)))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
         jd_eliminar_ordenLayout.setVerticalGroup(
             jd_eliminar_ordenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(jd_eliminar_ordenLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel15)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cb_eliminar_orden, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
+                .addComponent(btn_eliminar_orden)
+                .addGap(109, 109, 109))
         );
 
         javax.swing.GroupLayout jd_agregar_materialesLayout = new javax.swing.GroupLayout(jd_agregar_materiales.getContentPane());
@@ -410,6 +517,8 @@ public class Principal extends javax.swing.JFrame {
             jd_eliminar_productoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 300, Short.MAX_VALUE)
         );
+
+        jLabel18.setText("jLabel18");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -487,7 +596,7 @@ public class Principal extends javax.swing.JFrame {
         });
         jMenu3.add(jMenuItem11);
 
-        jMenuItem7.setText("Eliminar");
+        jMenuItem7.setText("Despedir");
         jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem7ActionPerformed(evt);
@@ -554,15 +663,20 @@ public class Principal extends javax.swing.JFrame {
 
     private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
         // TODO add your handling code here:
-        DefaultComboBoxModel modelo = (DefaultComboBoxModel) cb_modif_empleado.getModel();
-        for (int i = 0; i < ListaEmpleados.getTamano(); i++) {
-            modelo.addElement(ListaEmpleados.get(i));
+        try {
+            DefaultComboBoxModel modelo = (DefaultComboBoxModel) cb_modif_empleado.getModel();
+            for (int i = 0; i < ListaEmpleados.getTamano(); i++) {
+                modelo.addElement(ListaEmpleados.get(i));
+            }
+            cb_modif_empleado.setModel(modelo);
+            int pos = this.cb_modif_empleado.getSelectedIndex();
+            this.jd_modificar_empleado.setModal(true);
+            this.jd_modificar_empleado.pack();
+            this.jd_modificar_empleado.setVisible(true);
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        cb_modif_empleado.setModel(modelo);
-        int pos = this.cb_modif_empleado.getSelectedIndex();
-        this.jd_modificar_empleado.setModal(true);
-        this.jd_modificar_empleado.pack();
-        this.jd_modificar_empleado.setVisible(true);
 
 
     }//GEN-LAST:event_jMenuItem11ActionPerformed
@@ -576,9 +690,19 @@ public class Principal extends javax.swing.JFrame {
 
     private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
         // TODO add your handling code here:
-        this.jd_eliminar_orden.setModal(true);
-        this.jd_eliminar_orden.pack();
-        this.jd_eliminar_orden.setVisible(true);
+        try {
+            DefaultComboBoxModel modelo2 = (DefaultComboBoxModel) cb_eliminar_orden.getModel();
+            for (int i = 0; i < Ordenes.getSize(); i++) {
+                modelo2.addElement(Ordenes.get(i));
+            }
+            cb_eliminar_empleado.setModel(modelo2);
+            this.jd_eliminar_orden.setModal(true);
+            this.jd_eliminar_orden.pack();
+            this.jd_eliminar_orden.setVisible(true);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }//GEN-LAST:event_jMenuItem10ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -625,55 +749,99 @@ public class Principal extends javax.swing.JFrame {
 
     private void btn_agregar_empleadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_agregar_empleadoMouseClicked
         // TODO add your handling code here:
-        String nombre = this.txt_nombre_empleado.getText();
-        int id = Integer.parseInt(this.txt_id_empleado.getText());
-        int edad = (int) this.sp_edad_empleado.getValue();
-        String direccion = this.txt_direccion_empleado.getText();
-        double salario = (double) this.sp_salario_empleado.getValue();
-        boolean trabaja = false;
-        this.ListaEmpleados.insert(new Empleado(nombre, id, edad, direccion, salario, trabaja));
-        this.ListaEmpleados.Print_Lista();
-        System.out.println("***************************************");
+        try {
+            String nombre = this.txt_nombre_empleado.getText();
+            int id = Integer.parseInt(this.txt_id_empleado.getText());
+            int edad = (int) this.sp_edad_empleado.getValue();
+            String direccion = this.txt_direccion_empleado.getText();
+            double salario = (double) this.sp_salario_empleado.getValue();
+            boolean trabaja = false;
+            this.ListaEmpleados.insert(new Empleado(nombre, id, edad, direccion, salario, trabaja));
+            this.ListaEmpleados.Print_Lista();
+            System.out.println("***************************************");
+            JOptionPane.showMessageDialog(this, "Empleado Agregado Correctamente");
+            txt_nombre_empleado.setText("");
+            txt_id_empleado.setText("");
+            sp_edad_empleado.setValue(18);
+            txt_direccion_empleado.setText("");
+            sp_salario_empleado.setValue(0);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }//GEN-LAST:event_btn_agregar_empleadoMouseClicked
 
     private void btn_eliminar_empleadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_eliminar_empleadoMouseClicked
         // TODO add your handling code here:
-        ListaEmpleados.borrar(this.cb_eliminar_empleado.getSelectedIndex());
-        this.cb_eliminar_empleado.removeItemAt(cb_eliminar_empleado.getSelectedIndex());
-        this.ListaEmpleados.Print_Lista();
-        System.out.println("******************");
+        try {
+            ListaEmpleados.borrar(this.cb_eliminar_empleado.getSelectedIndex());
+            JOptionPane.showMessageDialog(this, "Empleado Despedido Correctamente");
+            this.cb_eliminar_empleado.removeItemAt(cb_eliminar_empleado.getSelectedIndex());
+            this.ListaEmpleados.Print_Lista();
+            System.out.println("******************");
+        } catch (Exception e) {
+        }
+
 
     }//GEN-LAST:event_btn_eliminar_empleadoMouseClicked
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
-        Empleado empleado = (Empleado) this.cb_modif_empleado.getSelectedItem();
-        this.txt_nombre_empleado_modificar.setText(empleado.getNombre());
-        this.txt_id_empleado_modificar.setText(Integer.toString(empleado.getId()));
-        this.sp_edad_empleado_modificar.setValue(empleado.getEdad());
-        this.txt_direccion_empleado_modificar.setText(empleado.getDireccion());
-        this.sp_salario_empleado_modificar.setValue(empleado.getSalario());
+        try {
+            Empleado empleado = (Empleado) this.cb_modif_empleado.getSelectedItem();
+            this.txt_nombre_empleado_modificar.setText(empleado.getNombre());
+            this.txt_id_empleado_modificar.setText(Integer.toString(empleado.getId()));
+            this.sp_edad_empleado_modificar.setValue(empleado.getEdad());
+            this.txt_direccion_empleado_modificar.setText(empleado.getDireccion());
+            this.sp_salario_empleado_modificar.setValue(empleado.getSalario());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void btn_agregar_empleado_modificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_agregar_empleado_modificarMouseClicked
         // TODO add your handling code here:
-        Empleado empleado = (Empleado) this.cb_modif_empleado.getSelectedItem();
-        int pos = this.cb_modif_empleado.getSelectedIndex();
-        String nombre = this.txt_nombre_empleado_modificar.getText();
-        int id = Integer.parseInt(this.txt_id_empleado_modificar.getText());
-        int edad = (int) this.sp_edad_empleado_modificar.getValue();
-        String direccion = this.txt_direccion_empleado_modificar.getText();
-        double salario = (double) this.sp_salario_empleado_modificar.getValue();
-        boolean trabaja = false;
-        empleado.setNombre(txt_nombre_empleado_modificar.getText());
-        empleado.setId(Integer.parseInt(txt_id_empleado_modificar.getText()));
-        empleado.setEdad((int) (sp_edad_empleado_modificar.getValue()));
-        empleado.setDireccion(txt_direccion_empleado_modificar.getText());
-        empleado.setSalario((double) sp_edad_empleado_modificar.getValue());        
-        ListaEmpleados.Print_Lista();
-        System.out.println("***********************");
+        try {
+            Empleado empleado = (Empleado) this.cb_modif_empleado.getSelectedItem();
+            int pos = this.cb_modif_empleado.getSelectedIndex();
+            String nombre = this.txt_nombre_empleado_modificar.getText();
+            int id = Integer.parseInt(this.txt_id_empleado_modificar.getText());
+            int edad = (int) this.sp_edad_empleado_modificar.getValue();
+            String direccion = this.txt_direccion_empleado_modificar.getText();
+            double salario = (double) this.sp_salario_empleado_modificar.getValue();
+            boolean trabaja = false;
+            empleado.setNombre(txt_nombre_empleado_modificar.getText());
+            empleado.setId(Integer.parseInt(txt_id_empleado_modificar.getText()));
+            empleado.setEdad((int) (sp_edad_empleado_modificar.getValue()));
+            empleado.setDireccion(txt_direccion_empleado_modificar.getText());
+            empleado.setSalario((double) sp_edad_empleado_modificar.getValue());
+            ListaEmpleados.Print_Lista();
+            System.out.println("***********************");
+            JOptionPane.showMessageDialog(this, "Empleado Modificado Correctamente");
+            txt_nombre_empleado_modificar.setText("");
+            txt_id_empleado_modificar.setText("");
+            sp_edad_empleado_modificar.setValue(18);
+            txt_direccion_empleado_modificar.setText("");
+            sp_salario_empleado_modificar.setValue(0);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
 
     }//GEN-LAST:event_btn_agregar_empleado_modificarMouseClicked
+
+    private void btn_eliminar_ordenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_eliminar_ordenMouseClicked
+        // TODO add your handling code here:
+        try {
+            Ordenes.remove(this.cb_eliminar_orden.getSelectedIndex());
+            this.cb_eliminar_orden.removeItemAt(this.cb_eliminar_orden.getSelectedIndex());
+            JOptionPane.showMessageDialog(this, "Orden Eliminada Correctamente");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }//GEN-LAST:event_btn_eliminar_ordenMouseClicked
 
     /**
      * @param args the command line arguments
@@ -711,10 +879,13 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bt_guardar_orden;
     private javax.swing.JButton btn_agregar_empleado;
     private javax.swing.JButton btn_agregar_empleado_modificar;
     private javax.swing.JButton btn_eliminar_empleado;
+    private javax.swing.JButton btn_eliminar_orden;
     private javax.swing.JComboBox cb_eliminar_empleado;
+    private javax.swing.JComboBox cb_eliminar_orden;
     private javax.swing.JComboBox cb_modif_empleado;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
@@ -723,6 +894,11 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -747,6 +923,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JDialog jd_agregar_empleado;
     private javax.swing.JDialog jd_agregar_materiales;
     private javax.swing.JDialog jd_agregar_orden;
@@ -762,12 +939,16 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JSpinner sp_edad_empleado_modificar;
     private javax.swing.JSpinner sp_salario_empleado;
     private javax.swing.JSpinner sp_salario_empleado_modificar;
+    private javax.swing.JTable tb_productos;
     private javax.swing.JTextField txt_direccion_empleado;
     private javax.swing.JTextField txt_direccion_empleado_modificar;
     private javax.swing.JTextField txt_id_empleado;
     private javax.swing.JTextField txt_id_empleado_modificar;
     private javax.swing.JTextField txt_nombre_empleado;
     private javax.swing.JTextField txt_nombre_empleado_modificar;
+    private javax.swing.JTextField txt_numero_orden;
     // End of variables declaration//GEN-END:variables
     private ListaEmpleados ListaEmpleados = new ListaEmpleados();
+    private LinkedList Productos = new LinkedList();
+    private LinkedList Ordenes = new LinkedList();
 }
