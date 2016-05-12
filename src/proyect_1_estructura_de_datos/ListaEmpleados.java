@@ -9,7 +9,7 @@ package proyect_1_estructura_de_datos;
  *
  * @author jordi
  */
-public class ListaEmpleados {
+public class ListaEmpleados extends Empleado{
 
     private NodoEmpleado head;
     private int tamano;
@@ -56,12 +56,14 @@ public class ListaEmpleados {
         NodoEmpleado temp2 = temp.getNext();//siguiente
         if (pos == 0) {
             this.setHead(temp2);
+            tamano--;
         } else {
             for (int i = 1; i < pos ; i++) {
                 temp = temp.getNext();
             }
             NodoEmpleado temp3 = temp.getNext();
             temp.setNext(temp3.getNext());
+            tamano--;
         }
     }
 
