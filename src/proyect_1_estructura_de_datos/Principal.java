@@ -14,6 +14,10 @@ import javax.swing.JOptionPane;
  */
 public class Principal extends javax.swing.JFrame {
 
+    private ListaEmpleados ListaEmpleados = new ListaEmpleados();
+    private LinkedList Materiales = new LinkedList();
+    private LinkedList Productos = new LinkedList();
+
     /**
      * Creates new form Principal
      */
@@ -65,7 +69,22 @@ public class Principal extends javax.swing.JFrame {
         jd_agregar_orden = new javax.swing.JDialog();
         jd_eliminar_orden = new javax.swing.JDialog();
         jd_agregar_materiales = new javax.swing.JDialog();
+        jLabel14 = new javax.swing.JLabel();
+        materialAgregarNombre = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        materialAgregarDescripcion = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
+        materialAgregarMarca = new javax.swing.JTextField();
+        materialAgregarBotonGuardar = new javax.swing.JButton();
         jd_modificar_materiales = new javax.swing.JDialog();
+        jLabel17 = new javax.swing.JLabel();
+        materialAgregarNombre1 = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
+        materialAgregarDescripcion1 = new javax.swing.JTextField();
+        jLabel19 = new javax.swing.JLabel();
+        materialAgregarMarca1 = new javax.swing.JTextField();
+        materialAgregarBotonGuardar1 = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox<>();
         jd_eliminar_materiales = new javax.swing.JDialog();
         jd_agregar_productos = new javax.swing.JDialog();
         jd_modificar_producto = new javax.swing.JDialog();
@@ -101,7 +120,7 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel6.setText("Salario:");
 
-        sp_salario_empleado.setModel(new javax.swing.SpinnerNumberModel(Double.valueOf(0.0d), null, null, Double.valueOf(1000.0d)));
+        sp_salario_empleado.setModel(new javax.swing.SpinnerNumberModel(0.0d, null, null, 1000.0d));
 
         rb_trabaja_agregar.setText("Actualmente Trabajando en una orden?");
         rb_trabaja_agregar.setEnabled(false);
@@ -227,7 +246,7 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel11.setText("Salario:");
 
-        sp_salario_empleado_modificar.setModel(new javax.swing.SpinnerNumberModel(Double.valueOf(0.0d), null, null, Double.valueOf(1000.0d)));
+        sp_salario_empleado_modificar.setModel(new javax.swing.SpinnerNumberModel(0.0d, null, null, 1000.0d));
 
         rb_trabaja_modificar.setText("Actualmente Trabajando en una orden?");
         rb_trabaja_modificar.setEnabled(false);
@@ -327,26 +346,126 @@ public class Principal extends javax.swing.JFrame {
             .addGap(0, 300, Short.MAX_VALUE)
         );
 
+        jd_agregar_materiales.setTitle("Agregar Material");
+
+        jLabel14.setText("Nombre");
+
+        jLabel15.setText("Descripción");
+
+        jLabel16.setText("Marca");
+
+        materialAgregarBotonGuardar.setText("Guardar");
+        materialAgregarBotonGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                materialAgregarBotonGuardarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jd_agregar_materialesLayout = new javax.swing.GroupLayout(jd_agregar_materiales.getContentPane());
         jd_agregar_materiales.getContentPane().setLayout(jd_agregar_materialesLayout);
         jd_agregar_materialesLayout.setHorizontalGroup(
             jd_agregar_materialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(jd_agregar_materialesLayout.createSequentialGroup()
+                .addGroup(jd_agregar_materialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_agregar_materialesLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jd_agregar_materialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel16)
+                            .addComponent(jLabel15)
+                            .addComponent(jLabel14))
+                        .addGap(18, 18, 18)
+                        .addGroup(jd_agregar_materialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(materialAgregarDescripcion)
+                            .addComponent(materialAgregarNombre)
+                            .addComponent(materialAgregarMarca, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)))
+                    .addGroup(jd_agregar_materialesLayout.createSequentialGroup()
+                        .addGap(136, 136, 136)
+                        .addComponent(materialAgregarBotonGuardar)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jd_agregar_materialesLayout.setVerticalGroup(
             jd_agregar_materialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(jd_agregar_materialesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jd_agregar_materialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel14)
+                    .addComponent(materialAgregarNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jd_agregar_materialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)
+                    .addComponent(materialAgregarDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jd_agregar_materialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel16)
+                    .addComponent(materialAgregarMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(materialAgregarBotonGuardar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        jd_modificar_materiales.setTitle("Modificar Material");
+
+        jLabel17.setText("Nombre");
+
+        jLabel18.setText("Descripción");
+
+        jLabel19.setText("Marca");
+
+        materialAgregarBotonGuardar1.setText("Guardar");
+        materialAgregarBotonGuardar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                materialAgregarBotonGuardar1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jd_modificar_materialesLayout = new javax.swing.GroupLayout(jd_modificar_materiales.getContentPane());
         jd_modificar_materiales.getContentPane().setLayout(jd_modificar_materialesLayout);
         jd_modificar_materialesLayout.setHorizontalGroup(
             jd_modificar_materialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(jd_modificar_materialesLayout.createSequentialGroup()
+                .addGroup(jd_modificar_materialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_modificar_materialesLayout.createSequentialGroup()
+                        .addGroup(jd_modificar_materialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jd_modificar_materialesLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(jd_modificar_materialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel19)
+                                    .addComponent(jLabel18)
+                                    .addComponent(jLabel17))
+                                .addGap(18, 18, 18)
+                                .addGroup(jd_modificar_materialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(materialAgregarDescripcion1)
+                                    .addComponent(materialAgregarNombre1)
+                                    .addComponent(materialAgregarMarca1, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)))
+                            .addGroup(jd_modificar_materialesLayout.createSequentialGroup()
+                                .addGap(136, 136, 136)
+                                .addComponent(materialAgregarBotonGuardar1)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jd_modificar_materialesLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jd_modificar_materialesLayout.setVerticalGroup(
             jd_modificar_materialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_modificar_materialesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jd_modificar_materialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel17)
+                    .addComponent(materialAgregarNombre1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jd_modificar_materialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel18)
+                    .addComponent(materialAgregarDescripcion1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jd_modificar_materialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel19)
+                    .addComponent(materialAgregarMarca1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(materialAgregarBotonGuardar1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jd_eliminar_materialesLayout = new javax.swing.GroupLayout(jd_eliminar_materiales.getContentPane());
@@ -394,6 +513,7 @@ public class Principal extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Trump Tower");
 
         jMenu1.setText("Materiales");
 
@@ -650,6 +770,22 @@ public class Principal extends javax.swing.JFrame {
         this.ListaEmpleados.Print_Lista();
     }//GEN-LAST:event_btn_agregar_empleadoMouseClicked
 
+    private void materialAgregarBotonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_materialAgregarBotonGuardarActionPerformed
+        if (this.materialAgregarNombre.getText().equals("") || this.materialAgregarDescripcion.getText().equals("") || this.materialAgregarMarca.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Error de Capa 8", "Existe un Campo Vacio", JOptionPane.ERROR);
+        } else {
+            
+        }
+    }//GEN-LAST:event_materialAgregarBotonGuardarActionPerformed
+
+    private void materialAgregarBotonGuardar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_materialAgregarBotonGuardar1ActionPerformed
+        if (this.materialAgregarNombre.getText().equals("") || this.materialAgregarDescripcion.getText().equals("") || this.materialAgregarMarca.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Error de Capa 8", "Existe un Campo Vacio", JOptionPane.ERROR);
+        } else {
+            
+        }
+    }//GEN-LAST:event_materialAgregarBotonGuardar1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -690,11 +826,18 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton btn_agregar_empleado_modificar;
     private javax.swing.JButton btn_eliminar_empleado;
     private javax.swing.JComboBox cb_eliminar_empleado;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -730,6 +873,14 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JDialog jd_modificar_empleado;
     private javax.swing.JDialog jd_modificar_materiales;
     private javax.swing.JDialog jd_modificar_producto;
+    private javax.swing.JButton materialAgregarBotonGuardar;
+    private javax.swing.JButton materialAgregarBotonGuardar1;
+    private javax.swing.JTextField materialAgregarDescripcion;
+    private javax.swing.JTextField materialAgregarDescripcion1;
+    private javax.swing.JTextField materialAgregarMarca;
+    private javax.swing.JTextField materialAgregarMarca1;
+    private javax.swing.JTextField materialAgregarNombre;
+    private javax.swing.JTextField materialAgregarNombre1;
     private javax.swing.JRadioButton rb_trabaja_agregar;
     private javax.swing.JRadioButton rb_trabaja_modificar;
     private javax.swing.JSpinner sp_edad_empleado;
@@ -743,7 +894,4 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField txt_nombre_empleado;
     private javax.swing.JTextField txt_nombre_empleado_modificar;
     // End of variables declaration//GEN-END:variables
-    private ListaEmpleados ListaEmpleados = new ListaEmpleados();
-    private LinkedList Materiales = new LinkedList();
-    private LinkedList Productos = new LinkedList();
 }

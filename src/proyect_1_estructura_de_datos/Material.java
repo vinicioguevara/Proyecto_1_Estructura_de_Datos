@@ -10,13 +10,12 @@ public class Material {
     String Descripcion = "";
     String Marca = "";
     String Serie = "";
-    int Cantidad;
 
-    public Material(String Nombre, String Descripcion, String Marca, int Cantidad) {
+    public Material(String Nombre, String Descripcion, String Marca) {
         this.Nombre = Nombre;
         this.Descripcion = Descripcion;
         this.Marca = Marca;
-        this.Cantidad = Cantidad;
+        
     }
 
     public String getNombre() {
@@ -50,5 +49,9 @@ public class Material {
     @Override
     public String toString() {
         return "Codigo: " + Serie + ", Nombre: " + Nombre + ", Descripción: " + Descripcion + ", Marca: " + Marca + "";
+    }
+
+    public String generarSerie(String Serie) {
+        return "";
     }
 }

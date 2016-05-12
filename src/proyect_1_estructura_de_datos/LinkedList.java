@@ -24,11 +24,6 @@ public class LinkedList {
         return size;
     }
 
-    public void setSize(int size) {
-        this.size = size;
-    }
-    
-    
     public void add(Object Data) {
         if (size == 0) {
             Head = new Node(Data);
@@ -43,7 +38,7 @@ public class LinkedList {
         }
     }
 
-    public Node remove(int Index) {
+    public Object remove(int Index) {
         if (size == 0) {
             return null;
         } else if (Index > size) {
@@ -58,7 +53,7 @@ public class LinkedList {
             }
             Return = Remove.getNext();
             Remove.setNext(null);
-            return Return;
+            return Return.getData();
         }
     }
 
