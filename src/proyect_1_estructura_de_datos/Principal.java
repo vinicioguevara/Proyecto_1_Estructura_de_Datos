@@ -6,6 +6,7 @@
 package proyect_1_estructura_de_datos;
 
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -516,14 +517,23 @@ public class Principal extends javax.swing.JFrame {
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
         // TODO add your handling code here:
-        DefaultComboBoxModel modelo=(DefaultComboBoxModel)cb_eliminar_empleado.getModel();
-           for (int i = 0; i < ListaEmpleados.getTamano(); i++) {
-               modelo.addElement(ListaEmpleados.get(i));
-           }       
-        cb_eliminar_empleado.setModel(modelo);
-        this.jd_eliminar_empleado.setModal(true);
-        this.jd_eliminar_empleado.pack();
-        this.jd_eliminar_empleado.setVisible(true);
+        try {
+            if (this.ListaEmpleados.getTamano() == 0) {
+                JOptionPane.showMessageDialog(this, "Error de Capa 8", "Error", JOptionPane.ERROR_MESSAGE);
+            } else {
+                DefaultComboBoxModel modelo = (DefaultComboBoxModel) cb_eliminar_empleado.getModel();
+                for (int i = 0; i < ListaEmpleados.getTamano(); i++) {
+                    modelo.addElement(ListaEmpleados.get(i));
+                }
+                cb_eliminar_empleado.setModel(modelo);
+                this.jd_eliminar_empleado.setModal(true);
+                this.jd_eliminar_empleado.pack();
+                this.jd_eliminar_empleado.setVisible(true);
+            }
+        } catch (Exception e) {
+        }
+
+
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
@@ -535,23 +545,35 @@ public class Principal extends javax.swing.JFrame {
 
     private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
         // TODO add your handling code here:
-        this.jd_modificar_empleado.setModal(true);
-        this.jd_modificar_empleado.pack();
-        this.jd_modificar_empleado.setVisible(true);
+        if (this.ListaEmpleados.getTamano() == 0) {
+            JOptionPane.showMessageDialog(this, "Error de Capa 8", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            this.jd_modificar_empleado.setModal(true);
+            this.jd_modificar_empleado.pack();
+            this.jd_modificar_empleado.setVisible(true);
+        }
     }//GEN-LAST:event_jMenuItem11ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
         // TODO add your handling code here:
-        this.jd_agregar_orden.setModal(true);
-        this.jd_agregar_orden.pack();
-        this.jd_agregar_orden.setVisible(true);
+        if (this.Productos.getSize() == 0) {
+            JOptionPane.showMessageDialog(this, "Error de Capa 8", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            this.jd_agregar_orden.setModal(true);
+            this.jd_agregar_orden.pack();
+            this.jd_agregar_orden.setVisible(true);
+        }
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
         // TODO add your handling code here:
-        this.jd_eliminar_orden.setModal(true);
-        this.jd_eliminar_orden.pack();
-        this.jd_eliminar_orden.setVisible(true);
+        if (this.Productos.getSize() == 0) {
+            JOptionPane.showMessageDialog(this, "Error de Capa 8", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            this.jd_eliminar_orden.setModal(true);
+            this.jd_eliminar_orden.pack();
+            this.jd_eliminar_orden.setVisible(true);
+        }
     }//GEN-LAST:event_jMenuItem10ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -563,48 +585,68 @@ public class Principal extends javax.swing.JFrame {
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
-        this.jd_modificar_materiales.setModal(true);
-        this.jd_modificar_materiales.pack();
-        this.jd_modificar_materiales.setVisible(true);
+        if (this.Materiales.getSize() == 0) {
+            JOptionPane.showMessageDialog(this, "Error de Capa 8", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            this.jd_modificar_materiales.setModal(true);
+            this.jd_modificar_materiales.pack();
+            this.jd_modificar_materiales.setVisible(true);
+        }
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         // TODO add your handling code here:
-        this.jd_eliminar_materiales.setModal(true);
-        this.jd_eliminar_materiales.pack();
-        this.jd_eliminar_materiales.setVisible(true);
+        if (this.Materiales.getSize() == 0) {
+            JOptionPane.showMessageDialog(this, "Error de Capa 8", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            this.jd_eliminar_materiales.setModal(true);
+            this.jd_eliminar_materiales.pack();
+            this.jd_eliminar_materiales.setVisible(true);
+        }
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         // TODO add your handling code here:
-        this.jd_agregar_productos.setModal(true);
-        this.jd_agregar_productos.pack();
-        this.jd_agregar_productos.setVisible(true);
+        if (this.Materiales.getSize() == 0) {
+            JOptionPane.showMessageDialog(this, "Error de Capa 8", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            this.jd_agregar_productos.setModal(true);
+            this.jd_agregar_productos.pack();
+            this.jd_agregar_productos.setVisible(true);
+        }
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
         // TODO add your handling code here:
-        this.jd_modificar_producto.setModal(true);
-        this.jd_modificar_producto.pack();
-        this.jd_modificar_producto.setVisible(true);
+        if (this.Productos.getSize() == 0) {
+            JOptionPane.showMessageDialog(this, "Error de Capa 8", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            this.jd_modificar_producto.setModal(true);
+            this.jd_modificar_producto.pack();
+            this.jd_modificar_producto.setVisible(true);
+        }
     }//GEN-LAST:event_jMenuItem8ActionPerformed
 
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
         // TODO add your handling code here:
-        this.jd_eliminar_producto.setModal(true);
-        this.jd_eliminar_producto.pack();
-        this.jd_eliminar_producto.setVisible(true);
+        if (this.Productos.getSize() == 0) {
+            JOptionPane.showMessageDialog(this, "Error de Capa 8", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            this.jd_eliminar_producto.setModal(true);
+            this.jd_eliminar_producto.pack();
+            this.jd_eliminar_producto.setVisible(true);
+        }
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
     private void btn_agregar_empleadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_agregar_empleadoMouseClicked
         // TODO add your handling code here:
-        String nombre=this.txt_nombre_empleado.getText();
-        int id=Integer.parseInt(this.txt_id_empleado.getText());
-        int edad= (int)this.sp_edad_empleado.getValue();
-        String direccion=this.txt_direccion_empleado.getText();
-        double salario=(double) this.sp_salario_empleado.getValue();
+        String nombre = this.txt_nombre_empleado.getText();
+        int id = Integer.parseInt(this.txt_id_empleado.getText());
+        int edad = (int) this.sp_edad_empleado.getValue();
+        String direccion = this.txt_direccion_empleado.getText();
+        double salario = (double) this.sp_salario_empleado.getValue();
         boolean trabaja = false;
-        this.ListaEmpleados.insert(new Empleado(nombre,id,edad,direccion,salario,trabaja));
+        this.ListaEmpleados.insert(new Empleado(nombre, id, edad, direccion, salario, trabaja));
         this.ListaEmpleados.Print_Lista();
     }//GEN-LAST:event_btn_agregar_empleadoMouseClicked
 
@@ -702,4 +744,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField txt_nombre_empleado_modificar;
     // End of variables declaration//GEN-END:variables
     private ListaEmpleados ListaEmpleados = new ListaEmpleados();
+    private LinkedList Materiales = new LinkedList();
+    private LinkedList Productos = new LinkedList();
 }
