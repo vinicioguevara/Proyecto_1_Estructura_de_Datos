@@ -5,9 +5,12 @@
  */
 package proyect_1_estructura_de_datos;
 
-import javax.swing.ComboBoxModel;
+import java.util.HashSet;
+import java.util.Set;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -90,7 +93,28 @@ public class Principal extends javax.swing.JFrame {
         materialEliminarSeleccionado = new javax.swing.JComboBox<>();
         materialEliminarBotonEliminar = new javax.swing.JButton();
         jd_agregar_productos = new javax.swing.JDialog();
+        jLabel20 = new javax.swing.JLabel();
+        productoAgregarNombre = new javax.swing.JTextField();
+        jLabel21 = new javax.swing.JLabel();
+        productoAgregarDescripcion = new javax.swing.JTextField();
+        jLabel22 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        productoAgregarMateriales = new javax.swing.JTable();
+        jLabel23 = new javax.swing.JLabel();
+        productoAgregarTiempoEnsamblado = new javax.swing.JSpinner();
+        jButton1 = new javax.swing.JButton();
         jd_modificar_producto = new javax.swing.JDialog();
+        jLabel24 = new javax.swing.JLabel();
+        productoModificarDescripcion = new javax.swing.JTextField();
+        jLabel25 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        productoModificarMateriales = new javax.swing.JTable();
+        jLabel26 = new javax.swing.JLabel();
+        productoModificarTiempoEnsamblado = new javax.swing.JSpinner();
+        jButton2 = new javax.swing.JButton();
+        jLabel27 = new javax.swing.JLabel();
+        productoModificarSeleccionado = new javax.swing.JComboBox<>();
+        productoModificarNombre = new javax.swing.JTextField();
         jd_eliminar_producto = new javax.swing.JDialog();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -421,17 +445,21 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
+        materialModificarSeleccionado.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                materialModificarSeleccionadoItemStateChanged(evt);
+            }
+        });
+
         javax.swing.GroupLayout jd_modificar_materialesLayout = new javax.swing.GroupLayout(jd_modificar_materiales.getContentPane());
         jd_modificar_materiales.getContentPane().setLayout(jd_modificar_materialesLayout);
         jd_modificar_materialesLayout.setHorizontalGroup(
             jd_modificar_materialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jd_modificar_materialesLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jd_modificar_materialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(materialModificarSeleccionado, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jd_modificar_materialesLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(materialModificarSeleccionado, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jd_modificar_materialesLayout.createSequentialGroup()
-                        .addContainerGap()
                         .addGroup(jd_modificar_materialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel19)
                             .addComponent(jLabel18)
@@ -500,26 +528,185 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jLabel20.setText("Nombre");
+
+        jLabel21.setText("Descripción");
+
+        jLabel22.setText("Tiempo Ensamblado (s)");
+
+        productoAgregarMateriales.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null}
+            },
+            new String [] {
+                "", "Material"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Boolean.class, java.lang.Object.class
+            };
+            boolean[] canEdit = new boolean [] {
+                true, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        productoAgregarMateriales.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        jScrollPane1.setViewportView(productoAgregarMateriales);
+
+        jLabel23.setText("Materiales");
+
+        productoAgregarTiempoEnsamblado.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 5));
+
+        jButton1.setText("Guardar");
+
         javax.swing.GroupLayout jd_agregar_productosLayout = new javax.swing.GroupLayout(jd_agregar_productos.getContentPane());
         jd_agregar_productos.getContentPane().setLayout(jd_agregar_productosLayout);
         jd_agregar_productosLayout.setHorizontalGroup(
             jd_agregar_productosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(jd_agregar_productosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jd_agregar_productosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_agregar_productosLayout.createSequentialGroup()
+                        .addGroup(jd_agregar_productosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel21)
+                            .addComponent(jLabel22)
+                            .addComponent(jLabel20)
+                            .addComponent(jLabel23))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jd_agregar_productosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(productoAgregarDescripcion)
+                            .addComponent(productoAgregarNombre)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 503, Short.MAX_VALUE)
+                            .addComponent(productoAgregarTiempoEnsamblado)))
+                    .addGroup(jd_agregar_productosLayout.createSequentialGroup()
+                        .addGap(283, 283, 283)
+                        .addComponent(jButton1)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jd_agregar_productosLayout.setVerticalGroup(
             jd_agregar_productosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(jd_agregar_productosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jd_agregar_productosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel20)
+                    .addComponent(productoAgregarNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jd_agregar_productosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel21)
+                    .addComponent(productoAgregarDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jd_agregar_productosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel22)
+                    .addComponent(productoAgregarTiempoEnsamblado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jd_agregar_productosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel23))
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        jLabel24.setText("Descripción");
+
+        jLabel25.setText("Tiempo Ensamblado (s)");
+
+        productoModificarMateriales.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null}
+            },
+            new String [] {
+                "", "Material"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Boolean.class, java.lang.Object.class
+            };
+            boolean[] canEdit = new boolean [] {
+                true, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        productoModificarMateriales.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        jScrollPane2.setViewportView(productoModificarMateriales);
+
+        jLabel26.setText("Materiales");
+
+        productoModificarTiempoEnsamblado.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 5));
+
+        jButton2.setText("Guardar");
+
+        jLabel27.setText("Nombre");
+
+        productoModificarSeleccionado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout jd_modificar_productoLayout = new javax.swing.GroupLayout(jd_modificar_producto.getContentPane());
         jd_modificar_producto.getContentPane().setLayout(jd_modificar_productoLayout);
         jd_modificar_productoLayout.setHorizontalGroup(
             jd_modificar_productoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(jd_modificar_productoLayout.createSequentialGroup()
+                .addGroup(jd_modificar_productoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_modificar_productoLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jd_modificar_productoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel24)
+                            .addComponent(jLabel25)
+                            .addComponent(jLabel27)
+                            .addComponent(jLabel26))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jd_modificar_productoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(productoModificarDescripcion)
+                            .addComponent(productoModificarNombre)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 503, Short.MAX_VALUE)
+                            .addComponent(productoModificarTiempoEnsamblado)))
+                    .addGroup(jd_modificar_productoLayout.createSequentialGroup()
+                        .addGap(289, 289, 289)
+                        .addComponent(jButton2)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jd_modificar_productoLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(productoModificarSeleccionado, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jd_modificar_productoLayout.setVerticalGroup(
             jd_modificar_productoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_modificar_productoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(productoModificarSeleccionado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jd_modificar_productoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel27)
+                    .addComponent(productoModificarNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jd_modificar_productoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel24)
+                    .addComponent(productoModificarDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jd_modificar_productoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel25)
+                    .addComponent(productoModificarTiempoEnsamblado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jd_modificar_productoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel26))
+                .addGap(18, 18, 18)
+                .addComponent(jButton2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jd_eliminar_productoLayout = new javax.swing.GroupLayout(jd_eliminar_producto.getContentPane());
@@ -732,6 +919,9 @@ public class Principal extends javax.swing.JFrame {
             for (int i = 0; i < this.Materiales.getSize(); i++) {
                 this.materialModificarSeleccionado.addItem(this.Materiales.get(i).toString());
             }
+            this.materialModificarNombre.setText(((Material)this.Materiales.first()).getNombre());
+            this.materialModificarDescripcion.setText(((Material)this.Materiales.first()).getDescripcion());
+            this.materialModificarMarca.setText(((Material)this.Materiales.first()).getMarca());
             this.jd_modificar_materiales.setModal(true);
             this.jd_modificar_materiales.pack();
             this.jd_modificar_materiales.setVisible(true);
@@ -756,8 +946,23 @@ public class Principal extends javax.swing.JFrame {
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         // TODO add your handling code here:
         if (this.Materiales.getSize() == 0) {
-            JOptionPane.showMessageDialog(this, "Error de Capa 8", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "No hay Registros de Materiales", "Error de Capa 8", JOptionPane.ERROR_MESSAGE);
         } else {
+            DefaultTableModel Modelo = (DefaultTableModel) this.productoAgregarMateriales.getModel();
+            Modelo.setColumnCount(2);
+            Object[] Identifiers = {"", "Materiales"};
+            Modelo.setColumnIdentifiers(Identifiers);
+            Object[] Material = new Object[2];
+            Material[0] = false;
+            for (int i = 0; i < this.Materiales.getSize(); i++) {
+                Material[1] = this.Materiales.get(i);
+                Modelo.addRow(Material);
+            }
+            this.productoAgregarMateriales.setModel(Modelo);
+            this.productoAgregarMateriales.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+            this.productoAgregarMateriales.getColumnModel().getColumn(0).setPreferredWidth(20);
+            this.productoAgregarMateriales.getColumnModel().getColumn(1).setPreferredWidth(600);
+            this.productoAgregarMateriales.getTableHeader().setResizingAllowed(false);
             this.jd_agregar_productos.setModal(true);
             this.jd_agregar_productos.pack();
             this.jd_agregar_productos.setVisible(true);
@@ -767,8 +972,27 @@ public class Principal extends javax.swing.JFrame {
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
         // TODO add your handling code here:
         if (this.Productos.getSize() == 0) {
-            JOptionPane.showMessageDialog(this, "Error de Capa 8", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "No hay Registros de Materiales", "Error de Capa 8", JOptionPane.ERROR_MESSAGE);
         } else {
+            this.productoModificarNombre.setText(((Producto) this.Productos.get(0)).getNombre());
+            this.productoModificarDescripcion.setText(((Producto) this.Productos.get(0)).getNombre());
+            this.productoModificarTiempoEnsamblado.setValue(((Producto) this.Productos.get(0)).getTiempoEnsamblado());
+            DefaultTableModel Modelo = (DefaultTableModel) this.productoAgregarMateriales.getModel();
+            Modelo.setColumnCount(2);
+            Object[] Identifiers = {"", "Materiales"};
+            Modelo.setColumnIdentifiers(Identifiers);
+            Object[] Material = new Object[2];
+            Material[0] = false;
+            for (int i = 0; i < ((Producto) this.Productos.get(this.productoModificarSeleccionado.getSelectedIndex())).getMateriales().getSize(); i++) {
+                Material[1] = ((Producto) this.Productos.get(this.productoModificarSeleccionado.getSelectedIndex())).getMateriales().get(i);
+                Modelo.addRow(Material);
+            }
+            this.productoModificarMateriales.setModel(Modelo);
+            this.productoModificarMateriales.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+            this.productoModificarMateriales.getColumnModel().getColumn(0).setPreferredWidth(20);
+            this.productoModificarMateriales.getColumnModel().getColumn(1).setPreferredWidth(600);
+            this.productoModificarMateriales.getTableHeader().setResizingAllowed(false);
+            this.productoModificarMateriales.getTableHeader().setReorderingAllowed(false);
             this.jd_modificar_producto.setModal(true);
             this.jd_modificar_producto.pack();
             this.jd_modificar_producto.setVisible(true);
@@ -778,7 +1002,7 @@ public class Principal extends javax.swing.JFrame {
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
         // TODO add your handling code here:
         if (this.Productos.getSize() == 0) {
-            JOptionPane.showMessageDialog(this, "Error de Capa 8", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "No hay Registros de Materiales", "Error de Capa 8", JOptionPane.ERROR_MESSAGE);
         } else {
             this.jd_eliminar_producto.setModal(true);
             this.jd_eliminar_producto.pack();
@@ -806,8 +1030,15 @@ public class Principal extends javax.swing.JFrame {
             this.materialAgregarNombre.setText("");
             this.materialAgregarDescripcion.setText("");
             this.materialAgregarMarca.setText("");
+            this.jd_agregar_materiales.setModal(false);
+            this.jd_agregar_materiales.setVisible(false);
         } else {
             Materiales.add(new Material(this.materialAgregarNombre.getText(), this.materialAgregarDescripcion.getText(), this.materialAgregarMarca.getText(), ((Material) this.Materiales.get(this.Materiales.getSize() - 1)).getSerie()));
+            this.materialAgregarNombre.setText("");
+            this.materialAgregarDescripcion.setText("");
+            this.materialAgregarMarca.setText("");
+            this.jd_agregar_materiales.setModal(false);
+            this.jd_agregar_materiales.setVisible(false);
         }
     }//GEN-LAST:event_materialAgregarBotonGuardarActionPerformed
 
@@ -818,12 +1049,22 @@ public class Principal extends javax.swing.JFrame {
             ((Material) this.Materiales.get(this.materialModificarSeleccionado.getSelectedIndex())).setNombre(this.materialModificarNombre.getText());
             ((Material) this.Materiales.get(this.materialModificarSeleccionado.getSelectedIndex())).setDescripcion(this.materialModificarDescripcion.getText());
             ((Material) this.Materiales.get(this.materialModificarSeleccionado.getSelectedIndex())).setMarca(this.materialModificarMarca.getText());
+            this.jd_modificar_materiales.setModal(false);
+            this.jd_modificar_materiales.setVisible(false);
         }
     }//GEN-LAST:event_materialModificarBotonGuardarActionPerformed
 
     private void materialEliminarBotonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_materialEliminarBotonEliminarActionPerformed
         this.Materiales.remove(this.materialEliminarSeleccionado.getSelectedIndex());
+        this.jd_eliminar_materiales.setModal(false);
+        this.jd_eliminar_materiales.setVisible(false);
     }//GEN-LAST:event_materialEliminarBotonEliminarActionPerformed
+
+    private void materialModificarSeleccionadoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_materialModificarSeleccionadoItemStateChanged
+            this.materialModificarNombre.setText(((Material)this.Materiales.get(this.materialModificarSeleccionado.getSelectedIndex())).getNombre());
+            this.materialModificarDescripcion.setText(((Material)this.Materiales.get(this.materialModificarSeleccionado.getSelectedIndex())).getDescripcion());
+            this.materialModificarMarca.setText(((Material)this.Materiales.get(this.materialModificarSeleccionado.getSelectedIndex())).getMarca());
+    }//GEN-LAST:event_materialModificarSeleccionadoItemStateChanged
 
     /**
      * @param args the command line arguments
@@ -836,7 +1077,7 @@ public class Principal extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -865,6 +1106,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton btn_agregar_empleado_modificar;
     private javax.swing.JButton btn_eliminar_empleado;
     private javax.swing.JComboBox cb_eliminar_empleado;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -877,6 +1120,14 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -900,6 +1151,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JDialog jd_agregar_empleado;
     private javax.swing.JDialog jd_agregar_materiales;
     private javax.swing.JDialog jd_agregar_orden;
@@ -922,6 +1175,15 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField materialModificarMarca;
     private javax.swing.JTextField materialModificarNombre;
     private javax.swing.JComboBox<String> materialModificarSeleccionado;
+    private javax.swing.JTextField productoAgregarDescripcion;
+    private javax.swing.JTable productoAgregarMateriales;
+    private javax.swing.JTextField productoAgregarNombre;
+    private javax.swing.JSpinner productoAgregarTiempoEnsamblado;
+    private javax.swing.JTextField productoModificarDescripcion;
+    private javax.swing.JTable productoModificarMateriales;
+    private javax.swing.JTextField productoModificarNombre;
+    private javax.swing.JComboBox<String> productoModificarSeleccionado;
+    private javax.swing.JSpinner productoModificarTiempoEnsamblado;
     private javax.swing.JRadioButton rb_trabaja_agregar;
     private javax.swing.JRadioButton rb_trabaja_modificar;
     private javax.swing.JSpinner sp_edad_empleado;

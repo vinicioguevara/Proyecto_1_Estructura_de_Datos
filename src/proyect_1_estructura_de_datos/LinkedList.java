@@ -30,7 +30,7 @@ public class LinkedList {
             size++;
         } else {
             Node tmp = Head;
-            for (int i = 0; i < size; i++) {
+            for (int i = 0; i < size - 1; i++) {
                 tmp = tmp.getNext();
             }
             tmp.setNext(new Node(Data));
@@ -44,7 +44,7 @@ public class LinkedList {
             size--;
         } else if (size != 0 || Index <= size) {
             Node Remove = Head;
-            for (int i = 0; i < Index; i++) {
+            for (int i = 0; i < Index - 1; i++) {
                 if (Remove.getNext() != null) {
                     Remove = Remove.getNext();
                 }
@@ -64,13 +64,15 @@ public class LinkedList {
         } else if (Index > size) {
             return null;
         }
-        Node tmp = Head;
-        for (int i = 0; i < Index - 1; i++) {
-            if (tmp.getNext() != null) {
+        if (size == 0) {
+            return Head.getData();
+        } else {
+            Node tmp = Head;
+            for (int i = 0; i < size - 1; i++) {
                 tmp = tmp.getNext();
             }
+            return tmp.getData();
         }
-        return tmp.getData();
     }
 
     public boolean indexOf(Object Data) {

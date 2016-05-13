@@ -15,10 +15,10 @@ public class Material {
         this.Nombre = Nombre;
         this.Descripcion = Descripcion;
         this.Marca = Marca;
-        if (serieAnterior.isEmpty()) {
+        if (serieAnterior.equals("")) {
             Serie = "1000";
         } else {
-            int numeroSerie = Integer.getInteger(serieAnterior);
+            int numeroSerie = Integer.parseInt(serieAnterior);
             numeroSerie++;
             this.Serie = "" + numeroSerie;
 
@@ -55,6 +55,6 @@ public class Material {
 
     @Override
     public String toString() {
-        return "Codigo: " + Serie + ", Nombre: " + Nombre + ", Descripción: " + Descripcion + ", Marca: " + Marca + "";
+        return "Codigo: " + Serie + ", Nombre: " + Nombre + ", Descripción: " + Descripcion + ", Marca: " + Marca + ", Serie: " + Serie;
     }
 }

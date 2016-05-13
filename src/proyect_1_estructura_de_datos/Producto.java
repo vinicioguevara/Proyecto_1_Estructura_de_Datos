@@ -49,9 +49,13 @@ public class Producto {
         Materiales.add(Material);
     }
 
+    public LinkedList getMateriales() {
+        return Materiales;
+    }
+
     @Override
     public String toString() {
-        return "Producto{" + "Nombre=" + Nombre + ", Descripcion=" + Descripcion + ", tiempoEnsamblado=" + tiempoEnsamblado ;
+        return "Nombre: " + Nombre + ", Descripcion: " + Descripcion + ", Tiempo de Ensamblado: " + tiempoEnsamblado;
     }
     
 }
