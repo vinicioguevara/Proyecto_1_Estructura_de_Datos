@@ -379,10 +379,10 @@ public class Principal extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jd_agregar_materialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(materialAgregarDescripcion)
-                            .addComponent(materialAgregarNombre)
-                            .addComponent(materialAgregarMarca, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)))
+                            .addComponent(materialAgregarMarca, javax.swing.GroupLayout.DEFAULT_SIZE, 514, Short.MAX_VALUE)
+                            .addComponent(materialAgregarNombre)))
                     .addGroup(jd_agregar_materialesLayout.createSequentialGroup()
-                        .addGap(136, 136, 136)
+                        .addGap(268, 268, 268)
                         .addComponent(materialAgregarBotonGuardar)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -428,26 +428,24 @@ public class Principal extends javax.swing.JFrame {
             .addGroup(jd_modificar_materialesLayout.createSequentialGroup()
                 .addGroup(jd_modificar_materialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jd_modificar_materialesLayout.createSequentialGroup()
-                        .addGroup(jd_modificar_materialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jd_modificar_materialesLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(jd_modificar_materialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel19)
-                                    .addComponent(jLabel18)
-                                    .addComponent(jLabel17))
-                                .addGap(18, 18, 18)
-                                .addGroup(jd_modificar_materialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(materialModificarDescripcion)
-                                    .addComponent(materialModificarNombre)
-                                    .addComponent(materialModificarMarca, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)))
-                            .addGroup(jd_modificar_materialesLayout.createSequentialGroup()
-                                .addGap(136, 136, 136)
-                                .addComponent(materialModificarBotonGuardar)))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addComponent(materialModificarSeleccionado, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jd_modificar_materialesLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(materialModificarSeleccionado, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(jd_modificar_materialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel19)
+                            .addComponent(jLabel18)
+                            .addComponent(jLabel17))
+                        .addGap(18, 18, Short.MAX_VALUE)
+                        .addGroup(jd_modificar_materialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(materialModificarDescripcion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 514, Short.MAX_VALUE)
+                            .addComponent(materialModificarNombre)
+                            .addComponent(materialModificarMarca))))
                 .addContainerGap())
+            .addGroup(jd_modificar_materialesLayout.createSequentialGroup()
+                .addGap(268, 268, 268)
+                .addComponent(materialModificarBotonGuardar)
+                .addContainerGap(268, Short.MAX_VALUE))
         );
         jd_modificar_materialesLayout.setVerticalGroup(
             jd_modificar_materialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -466,9 +464,9 @@ public class Principal extends javax.swing.JFrame {
                 .addGroup(jd_modificar_materialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel19)
                     .addComponent(materialModificarMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addComponent(materialModificarBotonGuardar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         materialEliminarBotonEliminar.setText("Eliminar");
@@ -486,9 +484,9 @@ public class Principal extends javax.swing.JFrame {
                 .addGroup(jd_eliminar_materialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jd_eliminar_materialesLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(materialEliminarSeleccionado, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(materialEliminarSeleccionado, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jd_eliminar_materialesLayout.createSequentialGroup()
-                        .addGap(73, 73, 73)
+                        .addGap(269, 269, 269)
                         .addComponent(materialEliminarBotonEliminar)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -728,15 +726,9 @@ public class Principal extends javax.swing.JFrame {
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
         if (this.Materiales.getSize() == 0) {
-            JOptionPane.showMessageDialog(this, "Error de Capa 8", "No hay Registros de Materiales", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "No hay Registros de Materiales", "Error de Capa 8", JOptionPane.ERROR_MESSAGE);
         } else {
-            while (true) {
-                if (this.materialModificarSeleccionado.getItemCount() - 1 > 0) {
-                    this.materialModificarSeleccionado.remove(materialModificarSeleccionado.getItemCount() - 1);
-                } else {
-                    break;
-                }
-            }
+            this.materialModificarSeleccionado.setModel(new DefaultComboBoxModel());
             for (int i = 0; i < this.Materiales.getSize(); i++) {
                 this.materialModificarSeleccionado.addItem(this.Materiales.get(i).toString());
             }
@@ -751,17 +743,10 @@ public class Principal extends javax.swing.JFrame {
         if (this.Materiales.getSize() == 0) {
             JOptionPane.showMessageDialog(this, "No hay Registros de Materiales", "Error de Capa 8", JOptionPane.ERROR_MESSAGE);
         } else {
-            while (true) {
-                if (this.materialEliminarSeleccionado.getItemCount() - 1 > 0) {
-                    this.materialEliminarSeleccionado.remove(materialEliminarSeleccionado.getItemCount() - 1);
-                } else {
-                    break;
-                }
-            }
+            this.materialEliminarSeleccionado.setModel(new DefaultComboBoxModel());
             for (int i = 0; i < this.Materiales.getSize(); i++) {
                 this.materialEliminarSeleccionado.addItem(this.Materiales.get(i).toString());
             }
-
             this.jd_eliminar_materiales.setModal(true);
             this.jd_eliminar_materiales.pack();
             this.jd_eliminar_materiales.setVisible(true);
@@ -818,6 +803,9 @@ public class Principal extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Existe un Campo Vacio", "Error de Capa 8", JOptionPane.ERROR_MESSAGE);
         } else if (this.Materiales.getSize() == 0) {
             Materiales.add(new Material(this.materialAgregarNombre.getText(), this.materialAgregarDescripcion.getText(), this.materialAgregarMarca.getText(), ""));
+            this.materialAgregarNombre.setText("");
+            this.materialAgregarDescripcion.setText("");
+            this.materialAgregarMarca.setText("");
         } else {
             Materiales.add(new Material(this.materialAgregarNombre.getText(), this.materialAgregarDescripcion.getText(), this.materialAgregarMarca.getText(), ((Material) this.Materiales.get(this.Materiales.getSize() - 1)).getSerie()));
         }
@@ -834,7 +822,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_materialModificarBotonGuardarActionPerformed
 
     private void materialEliminarBotonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_materialEliminarBotonEliminarActionPerformed
-        this.Materiales.remove(this.cb_eliminar_empleado.getSelectedIndex());
+        this.Materiales.remove(this.materialEliminarSeleccionado.getSelectedIndex());
     }//GEN-LAST:event_materialEliminarBotonEliminarActionPerformed
 
     /**

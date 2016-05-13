@@ -38,22 +38,19 @@ public class LinkedList {
         }
     }
 
-    public Object remove(int Index) {
-        if (size == 0) {
-            return null;
-        } else if (Index > size) {
-            return null;
-        } else {
+    public void remove(int Index) {
+        if (Index == 0) {
+            Head = null;
+            size--;
+        } else if (size != 0 || Index <= size) {
             Node Remove = Head;
-            Node Return;
-            for (int i = 0; i < Index - 1; i++) {
+            for (int i = 0; i < Index; i++) {
                 if (Remove.getNext() != null) {
                     Remove = Remove.getNext();
                 }
             }
-            Return = Remove;
             Remove = null;
-            return Return.getData();
+            size--;
         }
     }
 
