@@ -6,16 +6,23 @@ package proyect_1_estructura_de_datos;
  */
 public class Material {
 
-    String Nombre = "";
-    String Descripcion = "";
-    String Marca = "";
-    String Serie = "";
+    private String Nombre = "";
+    private String Descripcion = "";
+    private String Marca = "";
+    private String Serie = "";
 
-    public Material(String Nombre, String Descripcion, String Marca) {
+    public Material(String Nombre, String Descripcion, String Marca, String serieAnterior) {
         this.Nombre = Nombre;
         this.Descripcion = Descripcion;
         this.Marca = Marca;
-        
+        if (serieAnterior.isEmpty()) {
+            Serie = "1000";
+        } else {
+            int numeroSerie = Integer.getInteger(serieAnterior);
+            numeroSerie++;
+            this.Serie = "" + numeroSerie;
+
+        }
     }
 
     public String getNombre() {
@@ -49,9 +56,5 @@ public class Material {
     @Override
     public String toString() {
         return "Codigo: " + Serie + ", Nombre: " + Nombre + ", Descripción: " + Descripcion + ", Marca: " + Marca + "";
-    }
-
-    public String generarSerie(String Serie) {
-        return "";
     }
 }

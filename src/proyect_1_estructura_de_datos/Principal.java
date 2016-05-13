@@ -5,6 +5,7 @@
  */
 package proyect_1_estructura_de_datos;
 
+import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
@@ -78,14 +79,16 @@ public class Principal extends javax.swing.JFrame {
         materialAgregarBotonGuardar = new javax.swing.JButton();
         jd_modificar_materiales = new javax.swing.JDialog();
         jLabel17 = new javax.swing.JLabel();
-        materialAgregarNombre1 = new javax.swing.JTextField();
+        materialModificarNombre = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
-        materialAgregarDescripcion1 = new javax.swing.JTextField();
+        materialModificarDescripcion = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
-        materialAgregarMarca1 = new javax.swing.JTextField();
-        materialAgregarBotonGuardar1 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        materialModificarMarca = new javax.swing.JTextField();
+        materialModificarBotonGuardar = new javax.swing.JButton();
+        materialModificarSeleccionado = new javax.swing.JComboBox<>();
         jd_eliminar_materiales = new javax.swing.JDialog();
+        materialEliminarSeleccionado = new javax.swing.JComboBox<>();
+        materialEliminarBotonEliminar = new javax.swing.JButton();
         jd_agregar_productos = new javax.swing.JDialog();
         jd_modificar_producto = new javax.swing.JDialog();
         jd_eliminar_producto = new javax.swing.JDialog();
@@ -411,10 +414,10 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel19.setText("Marca");
 
-        materialAgregarBotonGuardar1.setText("Guardar");
-        materialAgregarBotonGuardar1.addActionListener(new java.awt.event.ActionListener() {
+        materialModificarBotonGuardar.setText("Guardar");
+        materialModificarBotonGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                materialAgregarBotonGuardar1ActionPerformed(evt);
+                materialModificarBotonGuardarActionPerformed(evt);
             }
         });
 
@@ -434,49 +437,69 @@ public class Principal extends javax.swing.JFrame {
                                     .addComponent(jLabel17))
                                 .addGap(18, 18, 18)
                                 .addGroup(jd_modificar_materialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(materialAgregarDescripcion1)
-                                    .addComponent(materialAgregarNombre1)
-                                    .addComponent(materialAgregarMarca1, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)))
+                                    .addComponent(materialModificarDescripcion)
+                                    .addComponent(materialModificarNombre)
+                                    .addComponent(materialModificarMarca, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)))
                             .addGroup(jd_modificar_materialesLayout.createSequentialGroup()
                                 .addGap(136, 136, 136)
-                                .addComponent(materialAgregarBotonGuardar1)))
+                                .addComponent(materialModificarBotonGuardar)))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jd_modificar_materialesLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(materialModificarSeleccionado, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jd_modificar_materialesLayout.setVerticalGroup(
             jd_modificar_materialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_modificar_materialesLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(materialModificarSeleccionado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jd_modificar_materialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel17)
-                    .addComponent(materialAgregarNombre1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(materialModificarNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jd_modificar_materialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel18)
-                    .addComponent(materialAgregarDescripcion1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(materialModificarDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jd_modificar_materialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel19)
-                    .addComponent(materialAgregarMarca1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(materialModificarMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(materialAgregarBotonGuardar1)
+                .addComponent(materialModificarBotonGuardar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        materialEliminarBotonEliminar.setText("Eliminar");
+        materialEliminarBotonEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                materialEliminarBotonEliminarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jd_eliminar_materialesLayout = new javax.swing.GroupLayout(jd_eliminar_materiales.getContentPane());
         jd_eliminar_materiales.getContentPane().setLayout(jd_eliminar_materialesLayout);
         jd_eliminar_materialesLayout.setHorizontalGroup(
             jd_eliminar_materialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(jd_eliminar_materialesLayout.createSequentialGroup()
+                .addGroup(jd_eliminar_materialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_eliminar_materialesLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(materialEliminarSeleccionado, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jd_eliminar_materialesLayout.createSequentialGroup()
+                        .addGap(73, 73, 73)
+                        .addComponent(materialEliminarBotonEliminar)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jd_eliminar_materialesLayout.setVerticalGroup(
             jd_eliminar_materialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(jd_eliminar_materialesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(materialEliminarSeleccionado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(materialEliminarBotonEliminar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jd_agregar_productosLayout = new javax.swing.GroupLayout(jd_agregar_productos.getContentPane());
@@ -697,7 +720,6 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem10ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
         this.jd_agregar_materiales.setModal(true);
         this.jd_agregar_materiales.pack();
         this.jd_agregar_materiales.setVisible(true);
@@ -706,8 +728,18 @@ public class Principal extends javax.swing.JFrame {
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
         if (this.Materiales.getSize() == 0) {
-            JOptionPane.showMessageDialog(this, "Error de Capa 8", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Error de Capa 8", "No hay Registros de Materiales", JOptionPane.ERROR_MESSAGE);
         } else {
+            while (true) {
+                if (this.materialModificarSeleccionado.getItemCount() - 1 > 0) {
+                    this.materialModificarSeleccionado.remove(materialModificarSeleccionado.getItemCount() - 1);
+                } else {
+                    break;
+                }
+            }
+            for (int i = 0; i < this.Materiales.getSize(); i++) {
+                this.materialModificarSeleccionado.addItem(this.Materiales.get(i).toString());
+            }
             this.jd_modificar_materiales.setModal(true);
             this.jd_modificar_materiales.pack();
             this.jd_modificar_materiales.setVisible(true);
@@ -717,8 +749,19 @@ public class Principal extends javax.swing.JFrame {
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         // TODO add your handling code here:
         if (this.Materiales.getSize() == 0) {
-            JOptionPane.showMessageDialog(this, "Error de Capa 8", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "No hay Registros de Materiales", "Error de Capa 8", JOptionPane.ERROR_MESSAGE);
         } else {
+            while (true) {
+                if (this.materialEliminarSeleccionado.getItemCount() - 1 > 0) {
+                    this.materialEliminarSeleccionado.remove(materialEliminarSeleccionado.getItemCount() - 1);
+                } else {
+                    break;
+                }
+            }
+            for (int i = 0; i < this.Materiales.getSize(); i++) {
+                this.materialEliminarSeleccionado.addItem(this.Materiales.get(i).toString());
+            }
+
             this.jd_eliminar_materiales.setModal(true);
             this.jd_eliminar_materiales.pack();
             this.jd_eliminar_materiales.setVisible(true);
@@ -772,19 +815,27 @@ public class Principal extends javax.swing.JFrame {
 
     private void materialAgregarBotonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_materialAgregarBotonGuardarActionPerformed
         if (this.materialAgregarNombre.getText().equals("") || this.materialAgregarDescripcion.getText().equals("") || this.materialAgregarMarca.getText().equals("")) {
-            JOptionPane.showMessageDialog(this, "Error de Capa 8", "Existe un Campo Vacio", JOptionPane.ERROR);
+            JOptionPane.showMessageDialog(this, "Existe un Campo Vacio", "Error de Capa 8", JOptionPane.ERROR_MESSAGE);
+        } else if (this.Materiales.getSize() == 0) {
+            Materiales.add(new Material(this.materialAgregarNombre.getText(), this.materialAgregarDescripcion.getText(), this.materialAgregarMarca.getText(), ""));
         } else {
-            
+            Materiales.add(new Material(this.materialAgregarNombre.getText(), this.materialAgregarDescripcion.getText(), this.materialAgregarMarca.getText(), ((Material) this.Materiales.get(this.Materiales.getSize() - 1)).getSerie()));
         }
     }//GEN-LAST:event_materialAgregarBotonGuardarActionPerformed
 
-    private void materialAgregarBotonGuardar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_materialAgregarBotonGuardar1ActionPerformed
-        if (this.materialAgregarNombre.getText().equals("") || this.materialAgregarDescripcion.getText().equals("") || this.materialAgregarMarca.getText().equals("")) {
-            JOptionPane.showMessageDialog(this, "Error de Capa 8", "Existe un Campo Vacio", JOptionPane.ERROR);
+    private void materialModificarBotonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_materialModificarBotonGuardarActionPerformed
+        if (this.materialModificarNombre.getText().equals("") || this.materialModificarDescripcion.getText().equals("") || this.materialModificarMarca.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Existe un Campo Vacio", "Error de Capa 8", JOptionPane.ERROR_MESSAGE);
         } else {
-            
+            ((Material) this.Materiales.get(this.materialModificarSeleccionado.getSelectedIndex())).setNombre(this.materialModificarNombre.getText());
+            ((Material) this.Materiales.get(this.materialModificarSeleccionado.getSelectedIndex())).setDescripcion(this.materialModificarDescripcion.getText());
+            ((Material) this.Materiales.get(this.materialModificarSeleccionado.getSelectedIndex())).setMarca(this.materialModificarMarca.getText());
         }
-    }//GEN-LAST:event_materialAgregarBotonGuardar1ActionPerformed
+    }//GEN-LAST:event_materialModificarBotonGuardarActionPerformed
+
+    private void materialEliminarBotonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_materialEliminarBotonEliminarActionPerformed
+        this.Materiales.remove(this.cb_eliminar_empleado.getSelectedIndex());
+    }//GEN-LAST:event_materialEliminarBotonEliminarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -826,7 +877,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton btn_agregar_empleado_modificar;
     private javax.swing.JButton btn_eliminar_empleado;
     private javax.swing.JComboBox cb_eliminar_empleado;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -874,13 +924,16 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JDialog jd_modificar_materiales;
     private javax.swing.JDialog jd_modificar_producto;
     private javax.swing.JButton materialAgregarBotonGuardar;
-    private javax.swing.JButton materialAgregarBotonGuardar1;
     private javax.swing.JTextField materialAgregarDescripcion;
-    private javax.swing.JTextField materialAgregarDescripcion1;
     private javax.swing.JTextField materialAgregarMarca;
-    private javax.swing.JTextField materialAgregarMarca1;
     private javax.swing.JTextField materialAgregarNombre;
-    private javax.swing.JTextField materialAgregarNombre1;
+    private javax.swing.JButton materialEliminarBotonEliminar;
+    private javax.swing.JComboBox<String> materialEliminarSeleccionado;
+    private javax.swing.JButton materialModificarBotonGuardar;
+    private javax.swing.JTextField materialModificarDescripcion;
+    private javax.swing.JTextField materialModificarMarca;
+    private javax.swing.JTextField materialModificarNombre;
+    private javax.swing.JComboBox<String> materialModificarSeleccionado;
     private javax.swing.JRadioButton rb_trabaja_agregar;
     private javax.swing.JRadioButton rb_trabaja_modificar;
     private javax.swing.JSpinner sp_edad_empleado;

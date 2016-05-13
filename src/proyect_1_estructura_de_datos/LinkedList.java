@@ -51,8 +51,8 @@ public class LinkedList {
                     Remove = Remove.getNext();
                 }
             }
-            Return = Remove.getNext();
-            Remove.setNext(null);
+            Return = Remove;
+            Remove = null;
             return Return.getData();
         }
     }
@@ -61,21 +61,19 @@ public class LinkedList {
         return Head.getData();
     }
 
-    public Node get(int Index) {
+    public Object get(int Index) {
         if (size == 0) {
             return null;
         } else if (Index > size) {
             return null;
         }
         Node tmp = Head;
-        for (int i = 0; i < Index; i++) {
+        for (int i = 0; i < Index - 1; i++) {
             if (tmp.getNext() != null) {
                 tmp = tmp.getNext();
-            } else {
-                return null;
             }
         }
-        return null;
+        return tmp.getData();
     }
 
     public boolean indexOf(Object Data) {
