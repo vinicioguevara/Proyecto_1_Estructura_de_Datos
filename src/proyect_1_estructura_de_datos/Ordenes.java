@@ -41,7 +41,7 @@ public class Ordenes {
     }
 
     public Object getProducto(int Index) {
-        return Productos.get(Index).getData();
+        return Productos.get(Index);
     }
 
     public void addProducto(Object Data) {

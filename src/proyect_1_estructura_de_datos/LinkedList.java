@@ -24,18 +24,13 @@ public class LinkedList {
         return size;
     }
 
-    public void setSize(int size) {
-        this.size = size;
-    }
-    
-    
     public void add(Object Data) {
         if (size == 0) {
             Head = new Node(Data);
             size++;
         } else {
             Node tmp = Head;
-            for (int i = 0; i < size; i++) {
+            for (int i = 0; i < size - 1; i++) {
                 tmp = tmp.getNext();
             }
             tmp.setNext(new Node(Data));
@@ -43,22 +38,19 @@ public class LinkedList {
         }
     }
 
-    public Node remove(int Index) {
-        if (size == 0) {
-            return null;
-        } else if (Index > size) {
-            return null;
-        } else {
+    public void remove(int Index) {
+        if (Index == 0) {
+            Head = null;
+            size--;
+        } else if (size != 0 || Index <= size) {
             Node Remove = Head;
-            Node Return;
             for (int i = 0; i < Index - 1; i++) {
                 if (Remove.getNext() != null) {
                     Remove = Remove.getNext();
                 }
             }
-            Return = Remove.getNext();
-            Remove.setNext(null);
-            return Return;
+            Remove = null;
+            size--;
         }
     }
 
@@ -66,34 +58,14 @@ public class LinkedList {
         return Head.getData();
     }
 
-    public Node get(int Index) {
-        if (size == 0) {
-            return null;
-        } else if (Index > size) {
+    public Object get(int Index) {
+        if (Index < 0 || Index >= size) {
             return null;
         }
         Node tmp = Head;
         for (int i = 0; i < Index; i++) {
-            if (tmp.getNext() != null) {
-                tmp = tmp.getNext();
-            } else {
-                return null;
-            }
-        }
-        return null;
-    }
-
-    public boolean indexOf(Object Data) {
-        if (size == 0) {
-            return false;
-        }
-        Node tmp = Head;
-        for (int i = 0; i < size; i++) {
-            if (Data.equals(tmp.getData())) {
-                return true;
-            }
             tmp = tmp.getNext();
         }
-        return false;
+        return tmp.getData();
     }
 }

@@ -6,17 +6,23 @@ package proyect_1_estructura_de_datos;
  */
 public class Material {
 
-    String Nombre = "";
-    String Descripcion = "";
-    String Marca = "";
-    String Serie = "";
-    int Cantidad;
+    private String Nombre = "";
+    private String Descripcion = "";
+    private String Marca = "";
+    private String Serie = "";
 
-    public Material(String Nombre, String Descripcion, String Marca, int Cantidad) {
+    public Material(String Nombre, String Descripcion, String Marca, String serieAnterior) {
         this.Nombre = Nombre;
         this.Descripcion = Descripcion;
         this.Marca = Marca;
-        this.Cantidad = Cantidad;
+        if (serieAnterior.equals("")) {
+            Serie = "1000";
+        } else {
+            int numeroSerie = Integer.parseInt(serieAnterior);
+            numeroSerie++;
+            this.Serie = "" + numeroSerie;
+
+        }
     }
 
     public String getNombre() {
@@ -49,6 +55,6 @@ public class Material {
 
     @Override
     public String toString() {
-        return "Codigo: " + Serie + ", Nombre: " + Nombre + ", Descripción: " + Descripcion + ", Marca: " + Marca + "";
+        return "Codigo: " + Serie + ", Nombre: " + Nombre + ", Descripción: " + Descripcion + ", Marca: " + Marca + ", Serie: " + Serie;
     }
 }
