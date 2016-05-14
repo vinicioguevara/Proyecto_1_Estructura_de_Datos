@@ -59,33 +59,13 @@ public class LinkedList {
     }
 
     public Object get(int Index) {
-        if (size == 0) {
+        if (Index < 0 || Index >= size) {
             return null;
-        } else if (Index > size) {
-            return null;
-        }
-        if (size == 0) {
-            return Head.getData();
-        } else {
-            Node tmp = Head;
-            for (int i = 0; i < size - 1; i++) {
-                tmp = tmp.getNext();
-            }
-            return tmp.getData();
-        }
-    }
-
-    public boolean indexOf(Object Data) {
-        if (size == 0) {
-            return false;
         }
         Node tmp = Head;
-        for (int i = 0; i < size; i++) {
-            if (Data.equals(tmp.getData())) {
-                return true;
-            }
+        for (int i = 0; i < Index; i++) {
             tmp = tmp.getNext();
         }
-        return false;
+        return tmp.getData();
     }
 }

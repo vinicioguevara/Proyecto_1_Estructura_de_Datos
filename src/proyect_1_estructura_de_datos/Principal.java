@@ -565,6 +565,11 @@ public class Principal extends javax.swing.JFrame {
         productoAgregarTiempoEnsamblado.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 5));
 
         jButton1.setText("Guardar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jd_agregar_productosLayout = new javax.swing.GroupLayout(jd_agregar_productos.getContentPane());
         jd_agregar_productos.getContentPane().setLayout(jd_agregar_productosLayout);
@@ -650,10 +655,13 @@ public class Principal extends javax.swing.JFrame {
         productoModificarTiempoEnsamblado.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 5));
 
         jButton2.setText("Guardar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel27.setText("Nombre");
-
-        productoModificarSeleccionado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout jd_modificar_productoLayout = new javax.swing.GroupLayout(jd_modificar_producto.getContentPane());
         jd_modificar_producto.getContentPane().setLayout(jd_modificar_productoLayout);
@@ -919,9 +927,9 @@ public class Principal extends javax.swing.JFrame {
             for (int i = 0; i < this.Materiales.getSize(); i++) {
                 this.materialModificarSeleccionado.addItem(this.Materiales.get(i).toString());
             }
-            this.materialModificarNombre.setText(((Material)this.Materiales.first()).getNombre());
-            this.materialModificarDescripcion.setText(((Material)this.Materiales.first()).getDescripcion());
-            this.materialModificarMarca.setText(((Material)this.Materiales.first()).getMarca());
+            this.materialModificarNombre.setText(((Material) this.Materiales.first()).getNombre());
+            this.materialModificarDescripcion.setText(((Material) this.Materiales.first()).getDescripcion());
+            this.materialModificarMarca.setText(((Material) this.Materiales.first()).getMarca());
             this.jd_modificar_materiales.setModal(true);
             this.jd_modificar_materiales.pack();
             this.jd_modificar_materiales.setVisible(true);
@@ -952,6 +960,7 @@ public class Principal extends javax.swing.JFrame {
             Modelo.setColumnCount(2);
             Object[] Identifiers = {"", "Materiales"};
             Modelo.setColumnIdentifiers(Identifiers);
+            Modelo.removeRow(0);
             Object[] Material = new Object[2];
             Material[0] = false;
             for (int i = 0; i < this.Materiales.getSize(); i++) {
@@ -972,7 +981,7 @@ public class Principal extends javax.swing.JFrame {
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
         // TODO add your handling code here:
         if (this.Productos.getSize() == 0) {
-            JOptionPane.showMessageDialog(this, "No hay Registros de Materiales", "Error de Capa 8", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "No hay Registros de Productos", "Error de Capa 8", JOptionPane.ERROR_MESSAGE);
         } else {
             this.productoModificarNombre.setText(((Producto) this.Productos.get(0)).getNombre());
             this.productoModificarDescripcion.setText(((Producto) this.Productos.get(0)).getNombre());
@@ -981,10 +990,17 @@ public class Principal extends javax.swing.JFrame {
             Modelo.setColumnCount(2);
             Object[] Identifiers = {"", "Materiales"};
             Modelo.setColumnIdentifiers(Identifiers);
+            Modelo.removeRow(0);
             Object[] Material = new Object[2];
             Material[0] = false;
-            for (int i = 0; i < ((Producto) this.Productos.get(this.productoModificarSeleccionado.getSelectedIndex())).getMateriales().getSize(); i++) {
-                Material[1] = ((Producto) this.Productos.get(this.productoModificarSeleccionado.getSelectedIndex())).getMateriales().get(i);
+            for (int i = 0; i < this.Materiales.getSize(); i++) {
+                Material[1] = this.Materiales.get(i);
+                Material[0] = false;
+                for (int j = 0; j < ((Producto) this.Productos.get(i)).getMateriales().getSize(); j++) {
+                    if (((Producto) this.Productos.get(i)).getMateriales().get(j).equals(Material[1])) {
+                        Material[0] = true;
+                    }
+                }
                 Modelo.addRow(Material);
             }
             this.productoModificarMateriales.setModel(Modelo);
@@ -1061,10 +1077,38 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_materialEliminarBotonEliminarActionPerformed
 
     private void materialModificarSeleccionadoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_materialModificarSeleccionadoItemStateChanged
-            this.materialModificarNombre.setText(((Material)this.Materiales.get(this.materialModificarSeleccionado.getSelectedIndex())).getNombre());
-            this.materialModificarDescripcion.setText(((Material)this.Materiales.get(this.materialModificarSeleccionado.getSelectedIndex())).getDescripcion());
-            this.materialModificarMarca.setText(((Material)this.Materiales.get(this.materialModificarSeleccionado.getSelectedIndex())).getMarca());
+        this.materialModificarNombre.setText(((Material) this.Materiales.get(this.materialModificarSeleccionado.getSelectedIndex())).getNombre());
+        this.materialModificarDescripcion.setText(((Material) this.Materiales.get(this.materialModificarSeleccionado.getSelectedIndex())).getDescripcion());
+        this.materialModificarMarca.setText(((Material) this.Materiales.get(this.materialModificarSeleccionado.getSelectedIndex())).getMarca());
     }//GEN-LAST:event_materialModificarSeleccionadoItemStateChanged
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if (this.productoAgregarNombre.getText().equals("") || this.productoAgregarDescripcion.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Existe un Campo Vacio", "Error de Capa 8", JOptionPane.ERROR_MESSAGE);
+        } else {
+            boolean materialEscogido = false;
+            for (int i = 0; i < this.productoAgregarMateriales.getRowCount(); i++) {
+                if ((boolean) this.productoAgregarMateriales.getValueAt(i, 0)) {
+                    materialEscogido = true;
+                    break;
+                }
+            }
+            if (materialEscogido) {
+                LinkedList Materiales = new LinkedList();
+                for (int i = 0; i < this.productoAgregarMateriales.getRowCount(); i++) {
+                    if ((boolean) this.productoAgregarMateriales.getValueAt(i, 0)) {
+                        Materiales.add(this.productoAgregarMateriales.getValueAt(i, 1));
+                    }
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "No Eligio Materiales para el Producto", "Error de Capa 8", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
