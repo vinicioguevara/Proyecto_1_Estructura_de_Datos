@@ -1613,15 +1613,15 @@ public class Principal extends javax.swing.JFrame {
                 }
             }
             if (materialEscogido) {
-                this.Productos.add(new Producto(this.productoAgregarNombre.getText(), this.productoAgregarDescripcion.getText(), Integer.parseInt(this.productoAgregarTiempoEnsamblado.getValue().toString())));
                 LinkedList Materiales = new LinkedList();
                 for (int i = 0; i < this.productoAgregarMateriales.getRowCount(); i++) {
                     if ((boolean) this.productoAgregarMateriales.getValueAt(i, 0)) {
-                        ((Producto) this.Productos.get(this.Productos.getSize() - 1)).setMaterial((Material) this.productoAgregarMateriales.getValueAt(i, 1));
+                        Materiales.add(this.productoAgregarMateriales.getValueAt(i, 1));
                     }
                 }
+                this.Productos.add(new Producto(this.productoAgregarNombre.getText(), this.productoAgregarDescripcion.getText(), Integer.parseInt(this.productoAgregarTiempoEnsamblado.getValue().toString()), Materiales));
             } else {
-                JOptionPane.showMessageDialog(this, "No Eligio Materiales para el Producto", "Error de Capa 8", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this.jd_agregar_productos, "No Eligio Materiales para el Producto", "Error de Capa 8", JOptionPane.ERROR_MESSAGE);
             }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -1644,9 +1644,10 @@ public class Principal extends javax.swing.JFrame {
                 LinkedList Materiales = new LinkedList();
                 for (int i = 0; i < this.productoModificarMateriales.getRowCount(); i++) {
                     if ((boolean) this.productoModificarMateriales.getValueAt(i, 0)) {
-                        ((Producto) this.Productos.get(this.Productos.getSize() - 1)).setMaterial((Material) this.productoModificarMateriales.getValueAt(i, 1));
+                        Materiales.add(this.productoModificarMateriales.getValueAt(i, 1));
                     }
                 }
+                ((Producto) this.Productos.get(this.productoModificarSeleccionado.getSelectedIndex())).setMateriales(Materiales);
             } else {
                 JOptionPane.showMessageDialog(this, "No Eligio Materiales para el Producto", "Error de Capa 8", JOptionPane.ERROR_MESSAGE);
             }

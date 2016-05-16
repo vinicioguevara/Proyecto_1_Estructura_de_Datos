@@ -11,10 +11,11 @@ public class Producto {
     private int tiempoEnsamblado = 0;
     private LinkedList Materiales = new LinkedList();
 
-    public Producto(String Nombre, String Descripcion, int tiempoEnsamblado) {
+    public Producto(String Nombre, String Descripcion, int tiempoEnsamblado, LinkedList Materiales) {
         this.Nombre = Nombre;
         this.Descripcion = Descripcion;
         this.tiempoEnsamblado = tiempoEnsamblado;
+        this.Materiales = Materiales;
     }
 
     public String getNombre() {
@@ -51,6 +52,10 @@ public class Producto {
 
     public LinkedList getMateriales() {
         return Materiales;
+    }
+
+    public void setMateriales(LinkedList Materiales) {
+        this.Materiales = Materiales;
     }
 
     @Override
