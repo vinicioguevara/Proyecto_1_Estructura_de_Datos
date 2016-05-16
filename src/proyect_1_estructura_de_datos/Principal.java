@@ -197,7 +197,7 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel6.setText("Salario:");
 
-        sp_salario_empleado.setModel(new javax.swing.SpinnerNumberModel(Double.valueOf(0.0d), null, null, Double.valueOf(1000.0d)));
+        sp_salario_empleado.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), null, null, Integer.valueOf(1000)));
 
         btn_agregar_empleado.setText("Agregar Empleado");
         btn_agregar_empleado.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -320,7 +320,7 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel11.setText("Salario:");
 
-        sp_salario_empleado_modificar.setModel(new javax.swing.SpinnerNumberModel(Double.valueOf(0.0d), null, null, Double.valueOf(1000.0d)));
+        sp_salario_empleado_modificar.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), null, null, Integer.valueOf(1000)));
 
         btn_agregar_empleado_modificar.setText("Modificar Empleado");
         btn_agregar_empleado_modificar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1540,7 +1540,7 @@ public class Principal extends javax.swing.JFrame {
             int id = Integer.parseInt(this.txt_id_empleado.getText());
             int edad = (int) this.sp_edad_empleado.getValue();
             String direccion = this.txt_direccion_empleado.getText();
-            double salario = (double) this.sp_salario_empleado.getValue();
+            int salario = (int) this.sp_salario_empleado.getValue();
             boolean trabaja = false;
             this.ListaEmpleados.insert(new Empleado(nombre, id, edad, direccion, salario, trabaja));
             this.ListaEmpleados.Print_Lista();
@@ -1730,7 +1730,7 @@ public class Principal extends javax.swing.JFrame {
         empleado.setId(Integer.parseInt(txt_id_empleado_modificar.getText()));
         empleado.setEdad((int) (sp_edad_empleado_modificar.getValue()));
         empleado.setDireccion(txt_direccion_empleado_modificar.getText());
-        empleado.setSalario((Double) sp_edad_empleado_modificar.getValue());
+        empleado.setSalario((int) sp_salario_empleado_modificar.getValue());
         ListaEmpleados.Print_Lista();
         System.out.println("***********************");
         JOptionPane.showMessageDialog(this, "Empleado Modificado Correctamente");
@@ -1770,8 +1770,7 @@ public class Principal extends javax.swing.JFrame {
             temp = (LinkedList) jt_productos_orden.getValueAt(i, 1);
         }
         Ordenes.insertar(new Ordenes(num_orden, temp));
-        if (lb_empleado1.getText().contentEquals("Inactivo")) {
-            System.out.println("Entra a if de inactivo");
+        if (lb_empleado1.getText().contentEquals("Inactivo")) {           
             System.out.println("Tamano de co: " + Ordenes.getTamano());
             for (int i = 0; i < Ordenes.getTamano(); i++) {
                 if (Ordenes.estaVacia()) {

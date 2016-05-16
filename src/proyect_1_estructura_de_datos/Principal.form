@@ -133,7 +133,7 @@
         <Component class="javax.swing.JSpinner" name="sp_salario_empleado">
           <Properties>
             <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
-              <SpinnerModel initial="0.0" numberType="java.lang.Double" stepSize="1000.0" type="number"/>
+              <SpinnerModel initial="0" numberType="java.lang.Integer" stepSize="1000" type="number"/>
             </Property>
           </Properties>
         </Component>
@@ -359,7 +359,7 @@
         <Component class="javax.swing.JSpinner" name="sp_salario_empleado_modificar">
           <Properties>
             <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
-              <SpinnerModel initial="0.0" numberType="java.lang.Double" stepSize="1000.0" type="number"/>
+              <SpinnerModel initial="0" numberType="java.lang.Integer" stepSize="1000" type="number"/>
             </Property>
           </Properties>
         </Component>

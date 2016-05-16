@@ -14,13 +14,13 @@ public class Empleado {
     public int id;
     public int edad;
     public String direccion;
-    public double salario;
+    public int salario;
     boolean trabaja;
 
     public Empleado() {
     }
 
-    public Empleado(String nombre, int id, int edad, String direccion, double salario, boolean trabaja) {
+    public Empleado(String nombre, int id, int edad, String direccion, int salario, boolean trabaja) {
         this.nombre = nombre;
         this.id = id;
         this.edad = edad;
@@ -65,7 +65,7 @@ public class Empleado {
         return salario;
     }
 
-    public void setSalario(double salario) {
+    public void setSalario(int salario) {
         this.salario = salario;
     }
 
