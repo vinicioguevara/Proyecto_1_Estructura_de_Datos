@@ -100,9 +100,9 @@ public class Principal extends javax.swing.JFrame {
         jLabel19 = new javax.swing.JLabel();
         materialModificarMarca = new javax.swing.JTextField();
         materialModificarBotonGuardar = new javax.swing.JButton();
-        materialModificarSeleccionado = new javax.swing.JComboBox<>();
+        materialModificarSeleccionado = new javax.swing.JComboBox<String>();
         jd_eliminar_materiales = new javax.swing.JDialog();
-        materialEliminarSeleccionado = new javax.swing.JComboBox<>();
+        materialEliminarSeleccionado = new javax.swing.JComboBox<String>();
         materialEliminarBotonEliminar = new javax.swing.JButton();
         jd_agregar_productos = new javax.swing.JDialog();
         jLabel20 = new javax.swing.JLabel();
@@ -125,7 +125,7 @@ public class Principal extends javax.swing.JFrame {
         productoModificarTiempoEnsamblado = new javax.swing.JSpinner();
         jButton2 = new javax.swing.JButton();
         jLabel27 = new javax.swing.JLabel();
-        productoModificarSeleccionado = new javax.swing.JComboBox<>();
+        productoModificarSeleccionado = new javax.swing.JComboBox<String>();
         productoModificarNombre = new javax.swing.JTextField();
         jd_eliminar_producto = new javax.swing.JDialog();
         jd_ver_materiales = new javax.swing.JDialog();
@@ -197,7 +197,7 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel6.setText("Salario:");
 
-        sp_salario_empleado.setModel(new javax.swing.SpinnerNumberModel(0, null, null, 1000));
+        sp_salario_empleado.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), null, null, Integer.valueOf(1000)));
 
         btn_agregar_empleado.setText("Agregar Empleado");
         btn_agregar_empleado.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -320,7 +320,7 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel11.setText("Salario:");
 
-        sp_salario_empleado_modificar.setModel(new javax.swing.SpinnerNumberModel(0, null, null, 1000));
+        sp_salario_empleado_modificar.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), null, null, Integer.valueOf(1000)));
 
         btn_agregar_empleado_modificar.setText("Modificar Empleado");
         btn_agregar_empleado_modificar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -734,14 +734,9 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel23.setText("Materiales");
 
-        productoAgregarTiempoEnsamblado.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 5));
+        productoAgregarTiempoEnsamblado.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), null, Integer.valueOf(5)));
 
         jButton1.setText("Guardar");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
-            }
-        });
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -829,7 +824,7 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel26.setText("Materiales");
 
-        productoModificarTiempoEnsamblado.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 5));
+        productoModificarTiempoEnsamblado.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), null, Integer.valueOf(5)));
 
         jButton2.setText("Guardar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -1657,31 +1652,6 @@ public class Principal extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        // TODO add your handling code here:
-        if (this.productoAgregarNombre.getText().equals("") || this.productoAgregarDescripcion.getText().equals("")) {
-            JOptionPane.showMessageDialog(this, "Existe un Campo Vacio", "Error de Capa 8", JOptionPane.ERROR_MESSAGE);
-        } else {
-            boolean materialEscogido = false;
-            for (int i = 0; i < this.productoAgregarMateriales.getRowCount(); i++) {
-                if ((boolean) this.productoAgregarMateriales.getValueAt(i, 0)) {
-                    materialEscogido = true;
-                    break;
-                }
-            }
-            if (materialEscogido) {
-                LinkedList Materiales = new LinkedList();
-                for (int i = 0; i < this.productoAgregarMateriales.getRowCount(); i++) {
-                    if ((boolean) this.productoAgregarMateriales.getValueAt(i, 0)) {
-                        Materiales.add(this.productoAgregarMateriales.getValueAt(i, 1));
-                    }
-                }
-            } else {
-                JOptionPane.showMessageDialog(this, "No Eligio Materiales para el Producto", "Error de Capa 8", JOptionPane.ERROR_MESSAGE);
-            }
-        }
-    }//GEN-LAST:event_jButton1MouseClicked
 
     private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
         // TODO add your handling code here:
