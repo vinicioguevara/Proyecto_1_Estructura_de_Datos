@@ -12,11 +12,22 @@ package proyect_1_estructura_de_datos;
 public class ColaOrdenes {
     private NodoOrdenes inicio;
     private NodoOrdenes termino;
-
+    private int tamano;
+    
     public ColaOrdenes() {
         inicio = null;
         termino = null;
+        this.tamano = 0;
     }
+
+    public int getTamano() {
+        return tamano;
+    }
+
+    public void setTamano(int tamano) {
+        this.tamano = tamano;
+    }
+    
     public void insertar(Ordenes ordenes) {
         NodoOrdenes i = new NodoOrdenes(ordenes);
         i.setNext(null);
@@ -26,11 +37,13 @@ public class ColaOrdenes {
         }
         termino.setNext(i);
         termino = termino.getNext();
+        tamano++;
     }
 
     public Ordenes extraer() {
         Ordenes datos = inicio.getValue();
         inicio = inicio.getNext();
+        tamano--;
         return datos;
     }
 

@@ -21,7 +21,7 @@ public class Principal extends javax.swing.JFrame {
     private ListaEmpleados ListaEmpleados = new ListaEmpleados();
     private LinkedList Materiales = new LinkedList();
     private LinkedList Productos = new LinkedList();
-    public static ColaOrdenes Ordenes = new ColaOrdenes();
+    private ColaOrdenes Ordenes = new ColaOrdenes();
 
     /**
      * Creates new form Principal
@@ -81,6 +81,9 @@ public class Principal extends javax.swing.JFrame {
         jt_productos_orden = new javax.swing.JTable();
         jButton3 = new javax.swing.JButton();
         jd_eliminar_orden = new javax.swing.JDialog();
+        jLabel35 = new javax.swing.JLabel();
+        cb_eliminar_orden = new javax.swing.JComboBox();
+        btn_eliminar_orden = new javax.swing.JButton();
         jd_agregar_materiales = new javax.swing.JDialog();
         jLabel28 = new javax.swing.JLabel();
         materialAgregarNombre = new javax.swing.JTextField();
@@ -138,6 +141,7 @@ public class Principal extends javax.swing.JFrame {
         jt_ver_nomina_empleados = new javax.swing.JTable();
         jLabel33 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
+        jd_ver_ensamblaje = new javax.swing.JDialog();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -154,6 +158,8 @@ public class Principal extends javax.swing.JFrame {
         jMenu4 = new javax.swing.JMenu();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem10 = new javax.swing.JMenuItem();
+        jMenu6 = new javax.swing.JMenu();
+        jMenuItem15 = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         jMenuItem12 = new javax.swing.JMenuItem();
         jMenuItem13 = new javax.swing.JMenuItem();
@@ -431,6 +437,11 @@ public class Principal extends javax.swing.JFrame {
         jScrollPane3.setViewportView(jt_productos_orden);
 
         jButton3.setText("Agregar");
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton3MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jd_agregar_ordenLayout = new javax.swing.GroupLayout(jd_agregar_orden.getContentPane());
         jd_agregar_orden.getContentPane().setLayout(jd_agregar_ordenLayout);
@@ -475,15 +486,45 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap(35, Short.MAX_VALUE))
         );
 
+        jLabel35.setText("Eliminar Orden");
+
+        btn_eliminar_orden.setText("Eliminar");
+        btn_eliminar_orden.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_eliminar_ordenMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jd_eliminar_ordenLayout = new javax.swing.GroupLayout(jd_eliminar_orden.getContentPane());
         jd_eliminar_orden.getContentPane().setLayout(jd_eliminar_ordenLayout);
         jd_eliminar_ordenLayout.setHorizontalGroup(
             jd_eliminar_ordenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(jd_eliminar_ordenLayout.createSequentialGroup()
+                .addGroup(jd_eliminar_ordenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_eliminar_ordenLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(cb_eliminar_orden, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jd_eliminar_ordenLayout.createSequentialGroup()
+                        .addGroup(jd_eliminar_ordenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jd_eliminar_ordenLayout.createSequentialGroup()
+                                .addGap(139, 139, 139)
+                                .addComponent(jLabel35))
+                            .addGroup(jd_eliminar_ordenLayout.createSequentialGroup()
+                                .addGap(133, 133, 133)
+                                .addComponent(btn_eliminar_orden)))
+                        .addGap(0, 182, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jd_eliminar_ordenLayout.setVerticalGroup(
             jd_eliminar_ordenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(jd_eliminar_ordenLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel35)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cb_eliminar_orden, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(110, 110, 110)
+                .addComponent(btn_eliminar_orden)
+                .addContainerGap(116, Short.MAX_VALUE))
         );
 
         jd_agregar_materiales.setTitle("Agregar Material");
@@ -1010,6 +1051,17 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
+        javax.swing.GroupLayout jd_ver_ensamblajeLayout = new javax.swing.GroupLayout(jd_ver_ensamblaje.getContentPane());
+        jd_ver_ensamblaje.getContentPane().setLayout(jd_ver_ensamblajeLayout);
+        jd_ver_ensamblajeLayout.setHorizontalGroup(
+            jd_ver_ensamblajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jd_ver_ensamblajeLayout.setVerticalGroup(
+            jd_ver_ensamblajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Trump Tower");
 
@@ -1116,6 +1168,13 @@ public class Principal extends javax.swing.JFrame {
         jMenu4.add(jMenuItem10);
 
         jMenuBar1.add(jMenu4);
+
+        jMenu6.setText("Ensamblaje");
+
+        jMenuItem15.setText("Ver");
+        jMenu6.add(jMenuItem15);
+
+        jMenuBar1.add(jMenu6);
 
         jMenu5.setText("Reporte");
 
@@ -1231,6 +1290,11 @@ public class Principal extends javax.swing.JFrame {
         if (this.Productos.getSize() == 0) {
             JOptionPane.showMessageDialog(this, "Error de Capa 8", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
+            DefaultComboBoxModel modelo = (DefaultComboBoxModel) cb_eliminar_orden.getModel();
+            for (int i = 0; i < Ordenes.contar(); i++) {
+                modelo.addElement(Ordenes.toString());
+            }
+            cb_eliminar_orden.setModel(modelo);
             this.jd_eliminar_orden.setModal(true);
             this.jd_eliminar_orden.pack();
             this.jd_eliminar_orden.setVisible(true);
@@ -1543,11 +1607,11 @@ public class Principal extends javax.swing.JFrame {
 
     private void btn_agregar_empleado_modificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_agregar_empleado_modificarMouseClicked
         // TODO add your handling code here:
-        Empleado empleado = (Empleado) this.cb_modif_empleado.getSelectedItem();        
+        Empleado empleado = (Empleado) this.cb_modif_empleado.getSelectedItem();
         empleado.setNombre(txt_nombre_empleado_modificar.getText());
         empleado.setId(Integer.parseInt(txt_id_empleado_modificar.getText()));
         empleado.setEdad((int) (sp_edad_empleado_modificar.getValue()));
-        empleado.setDireccion(txt_direccion_empleado_modificar.getText());        
+        empleado.setDireccion(txt_direccion_empleado_modificar.getText());
         empleado.setSalario((Double) sp_edad_empleado_modificar.getValue());
         ListaEmpleados.Print_Lista();
         System.out.println("***********************");
@@ -1577,6 +1641,25 @@ public class Principal extends javax.swing.JFrame {
         this.ListaEmpleados.Print_Lista();
         System.out.println("******************");
     }//GEN-LAST:event_btn_eliminar_empleadoMouseClicked
+
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+        // TODO add your handling code here:
+        int num_orden = Integer.parseInt(txt_num_orden.getText());
+        DefaultTableModel modelo = (DefaultTableModel) jt_productos_orden.getModel();
+        LinkedList temp = new LinkedList();
+        for (int i = 0; i < modelo.getRowCount(); i++) {
+            temp = (LinkedList) jt_productos_orden.getValueAt(i, 1);
+        }
+        Ordenes.insertar(new Ordenes(num_orden, temp));
+
+    }//GEN-LAST:event_jButton3MouseClicked
+
+    private void btn_eliminar_ordenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_eliminar_ordenMouseClicked
+        // TODO add your handling code here:
+        //Ordenes.extraer((this.cb_eliminar_empleado.getSelectedItem()));
+        JOptionPane.showMessageDialog(this, "Empleado Despedido Correctamente");
+        this.cb_eliminar_empleado.removeItemAt(cb_eliminar_empleado.getSelectedIndex());
+    }//GEN-LAST:event_btn_eliminar_ordenMouseClicked
 
     /**
      * @param args the command line arguments
@@ -1618,7 +1701,9 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton btn_agregar_empleado_modificar;
     private javax.swing.JButton btn_cargar_empleado_modif;
     private javax.swing.JButton btn_eliminar_empleado;
+    private javax.swing.JButton btn_eliminar_orden;
     private javax.swing.JComboBox cb_eliminar_empleado;
+    private javax.swing.JComboBox cb_eliminar_orden;
     private javax.swing.JComboBox cb_modif_empleado;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -1652,6 +1737,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1663,6 +1749,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
@@ -1670,6 +1757,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem12;
     private javax.swing.JMenuItem jMenuItem13;
     private javax.swing.JMenuItem jMenuItem14;
+    private javax.swing.JMenuItem jMenuItem15;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
@@ -1695,6 +1783,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JDialog jd_modificar_empleado;
     private javax.swing.JDialog jd_modificar_materiales;
     private javax.swing.JDialog jd_modificar_producto;
+    private javax.swing.JDialog jd_ver_ensamblaje;
     private javax.swing.JDialog jd_ver_materiales;
     private javax.swing.JDialog jd_ver_nomina_empleados;
     private javax.swing.JDialog jd_ver_productos;
