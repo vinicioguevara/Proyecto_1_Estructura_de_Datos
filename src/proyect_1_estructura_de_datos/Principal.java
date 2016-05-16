@@ -100,9 +100,9 @@ public class Principal extends javax.swing.JFrame {
         jLabel19 = new javax.swing.JLabel();
         materialModificarMarca = new javax.swing.JTextField();
         materialModificarBotonGuardar = new javax.swing.JButton();
-        materialModificarSeleccionado = new javax.swing.JComboBox<String>();
+        materialModificarSeleccionado = new javax.swing.JComboBox<>();
         jd_eliminar_materiales = new javax.swing.JDialog();
-        materialEliminarSeleccionado = new javax.swing.JComboBox<String>();
+        materialEliminarSeleccionado = new javax.swing.JComboBox<>();
         materialEliminarBotonEliminar = new javax.swing.JButton();
         jd_agregar_productos = new javax.swing.JDialog();
         jLabel20 = new javax.swing.JLabel();
@@ -125,7 +125,7 @@ public class Principal extends javax.swing.JFrame {
         productoModificarTiempoEnsamblado = new javax.swing.JSpinner();
         jButton2 = new javax.swing.JButton();
         jLabel27 = new javax.swing.JLabel();
-        productoModificarSeleccionado = new javax.swing.JComboBox<String>();
+        productoModificarSeleccionado = new javax.swing.JComboBox<>();
         productoModificarNombre = new javax.swing.JTextField();
         jd_eliminar_producto = new javax.swing.JDialog();
         jd_ver_materiales = new javax.swing.JDialog();
@@ -197,7 +197,7 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel6.setText("Salario:");
 
-        sp_salario_empleado.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), null, null, Integer.valueOf(1000)));
+        sp_salario_empleado.setModel(new javax.swing.SpinnerNumberModel(0, null, null, 1000));
 
         btn_agregar_empleado.setText("Agregar Empleado");
         btn_agregar_empleado.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -320,7 +320,7 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel11.setText("Salario:");
 
-        sp_salario_empleado_modificar.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), null, null, Integer.valueOf(1000)));
+        sp_salario_empleado_modificar.setModel(new javax.swing.SpinnerNumberModel(0, null, null, 1000));
 
         btn_agregar_empleado_modificar.setText("Modificar Empleado");
         btn_agregar_empleado_modificar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -484,7 +484,7 @@ public class Principal extends javax.swing.JFrame {
                     .addGroup(jd_agregar_ordenLayout.createSequentialGroup()
                         .addGap(214, 214, 214)
                         .addComponent(jButton3)))
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jd_agregar_ordenLayout.setVerticalGroup(
             jd_agregar_ordenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -734,7 +734,7 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel23.setText("Materiales");
 
-        productoAgregarTiempoEnsamblado.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), null, Integer.valueOf(5)));
+        productoAgregarTiempoEnsamblado.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 5));
 
         jButton1.setText("Guardar");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -829,7 +829,7 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel26.setText("Materiales");
 
-        productoModificarTiempoEnsamblado.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), null, Integer.valueOf(5)));
+        productoModificarTiempoEnsamblado.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 5));
 
         jButton2.setText("Guardar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -1387,14 +1387,16 @@ public class Principal extends javax.swing.JFrame {
         if (this.Productos.getSize() == 0) {
             JOptionPane.showMessageDialog(this, "Error de Capa 8", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
-            int tama = Productos.getSize();
+            int Tamano = Productos.getSize();
             DefaultTableModel modelo = (DefaultTableModel) jt_productos_orden.getModel();
             for (int i = 0; i < modelo.getRowCount(); i++) {
                 modelo.removeRow(i);
             }
-            for (int i = 0; i < tama; i++) {
-                String in = Productos.get(i).toString();
-                modelo.addRow(new Object[]{in});
+            Object[] row = new Object[2];
+            row[0] = false;
+            for (int i = 0; i < Tamano; i++) {
+                row[1] = this.Productos.get(i);
+                modelo.addRow(row);
             }
             jt_productos_orden.setModel(modelo);
             this.jd_agregar_orden.setModal(true);
@@ -1490,14 +1492,19 @@ public class Principal extends javax.swing.JFrame {
         if (this.Productos.getSize() == 0) {
             JOptionPane.showMessageDialog(this, "No hay Registros de Productos", "Error de Capa 8", JOptionPane.ERROR_MESSAGE);
         } else {
+            DefaultComboBoxModel ModeloComboBox = new DefaultComboBoxModel(); 
+            for (int i = 0; i < this.Productos.getSize(); i++) {
+                ModeloComboBox.addElement(this.Productos.get(i));
+            }
+            this.productoModificarSeleccionado.setModel(ModeloComboBox);
             this.productoModificarNombre.setText(((Producto) this.Productos.get(0)).getNombre());
             this.productoModificarDescripcion.setText(((Producto) this.Productos.get(0)).getNombre());
             this.productoModificarTiempoEnsamblado.setValue(((Producto) this.Productos.get(0)).getTiempoEnsamblado());
-            DefaultTableModel Modelo = (DefaultTableModel) this.productoAgregarMateriales.getModel();
-            Modelo.setColumnCount(2);
+            DefaultTableModel ModeloTable = (DefaultTableModel) this.productoAgregarMateriales.getModel();
+            ModeloTable.setColumnCount(2);
             Object[] Identifiers = {"", "Materiales"};
-            Modelo.setColumnIdentifiers(Identifiers);
-            Modelo.removeRow(0);
+            ModeloTable.setColumnIdentifiers(Identifiers);
+            ModeloTable.removeRow(0);
             Object[] Material = new Object[2];
             Material[0] = false;
             for (int i = 0; i < this.Materiales.getSize(); i++) {
@@ -1508,9 +1515,9 @@ public class Principal extends javax.swing.JFrame {
                         Material[0] = true;
                     }
                 }
-                Modelo.addRow(Material);
+                ModeloTable.addRow(Material);
             }
-            this.productoModificarMateriales.setModel(Modelo);
+            this.productoModificarMateriales.setModel(ModeloTable);
             this.productoModificarMateriales.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
             this.productoModificarMateriales.getColumnModel().getColumn(0).setPreferredWidth(20);
             this.productoModificarMateriales.getColumnModel().getColumn(1).setPreferredWidth(600);
@@ -1535,26 +1542,22 @@ public class Principal extends javax.swing.JFrame {
 
     private void btn_agregar_empleadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_agregar_empleadoMouseClicked
         // TODO add your handling code here:
-        try {
-            String nombre = this.txt_nombre_empleado.getText();
-            int id = Integer.parseInt(this.txt_id_empleado.getText());
-            int edad = (int) this.sp_edad_empleado.getValue();
-            String direccion = this.txt_direccion_empleado.getText();
-            int salario = (int) this.sp_salario_empleado.getValue();
-            boolean trabaja = false;
-            this.ListaEmpleados.insert(new Empleado(nombre, id, edad, direccion, salario, trabaja));
-            this.ListaEmpleados.Print_Lista();
-            JOptionPane.showMessageDialog(this, "Empleado Registrado Correctamente");
-            txt_nombre_empleado.setText("");
-            txt_id_empleado.setText("");
-            sp_edad_empleado.setValue(18);
-            txt_direccion_empleado.setText("");
-            sp_salario_empleado.setValue(0);
-            jd_agregar_empleado.setModal(false);
-            jd_agregar_empleado.setVisible(false);
-        } catch (Exception e) {
-        }
-
+        String nombre = this.txt_nombre_empleado.getText();
+        int id = Integer.parseInt(this.txt_id_empleado.getText());
+        int edad = (int) this.sp_edad_empleado.getValue();
+        String direccion = this.txt_direccion_empleado.getText();
+        int salario = (int) this.sp_salario_empleado.getValue();
+        boolean trabaja = false;
+        this.ListaEmpleados.insert(new Empleado(nombre, id, edad, direccion, salario, trabaja));
+        this.ListaEmpleados.Print_Lista();
+        JOptionPane.showMessageDialog(this, "Empleado Registrado Correctamente");
+        txt_nombre_empleado.setText("");
+        txt_id_empleado.setText("");
+        sp_edad_empleado.setValue(18);
+        txt_direccion_empleado.setText("");
+        sp_salario_empleado.setValue(0);
+        jd_agregar_empleado.setModal(false);
+        jd_agregar_empleado.setVisible(false);
     }//GEN-LAST:event_btn_agregar_empleadoMouseClicked
 
     private void materialAgregarBotonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_materialAgregarBotonGuardarActionPerformed
@@ -1615,10 +1618,11 @@ public class Principal extends javax.swing.JFrame {
                 }
             }
             if (materialEscogido) {
+                this.Productos.add(new Producto(this.productoAgregarNombre.getText(), this.productoAgregarDescripcion.getText(), Integer.parseInt(this.productoAgregarTiempoEnsamblado.getValue().toString())));
                 LinkedList Materiales = new LinkedList();
                 for (int i = 0; i < this.productoAgregarMateriales.getRowCount(); i++) {
                     if ((boolean) this.productoAgregarMateriales.getValueAt(i, 0)) {
-                        Materiales.add(this.productoAgregarMateriales.getValueAt(i, 1));
+                        ((Producto) this.Productos.get(this.Productos.getSize() - 1)).setMaterial((Material) this.productoAgregarMateriales.getValueAt(i, 1));
                     }
                 }
             } else {
@@ -1628,7 +1632,30 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-
+        if (this.productoModificarNombre.getText().equals("") || this.productoModificarDescripcion.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Existe un Campo Vacio", "Error de Capa 8", JOptionPane.ERROR_MESSAGE);
+        } else {
+            boolean materialEscogido = false;
+            for (int i = 0; i < this.productoModificarMateriales.getRowCount(); i++) {
+                if ((boolean) this.productoModificarMateriales.getValueAt(i, 0)) {
+                    materialEscogido = true;
+                    break;
+                }
+            }
+            if (materialEscogido) {
+                ((Producto) this.Productos.get(this.productoModificarSeleccionado.getSelectedIndex())).setNombre(this.productoModificarNombre.getText());
+                ((Producto) this.Productos.get(this.productoModificarSeleccionado.getSelectedIndex())).setDescripcion(this.productoModificarDescripcion.getText());
+                ((Producto) this.Productos.get(this.productoModificarSeleccionado.getSelectedIndex())).setTiempoEnsamblado(Integer.parseInt(this.productoModificarTiempoEnsamblado.getValue().toString()));
+                LinkedList Materiales = new LinkedList();
+                for (int i = 0; i < this.productoModificarMateriales.getRowCount(); i++) {
+                    if ((boolean) this.productoModificarMateriales.getValueAt(i, 0)) {
+                        ((Producto) this.Productos.get(this.Productos.getSize() - 1)).setMaterial((Material) this.productoModificarMateriales.getValueAt(i, 1));
+                    }
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "No Eligio Materiales para el Producto", "Error de Capa 8", JOptionPane.ERROR_MESSAGE);
+            }
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
@@ -1762,32 +1789,39 @@ public class Principal extends javax.swing.JFrame {
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
         // TODO add your handling code here:
-        double tiempo_prep=0;
         int num_orden = Integer.parseInt(txt_num_orden.getText());
         DefaultTableModel modelo = (DefaultTableModel) jt_productos_orden.getModel();
         LinkedList temp = new LinkedList();
         for (int i = 0; i < modelo.getRowCount(); i++) {
-            temp = (LinkedList) jt_productos_orden.getValueAt(i, 1);
+            if ((boolean) jt_productos_orden.getValueAt(i, 0)) {
+                temp.add(jt_productos_orden.getValueAt(i, 1));
+            }
         }
         Ordenes.insertar(new Ordenes(num_orden, temp));
-        if (lb_empleado1.getText().contentEquals("Inactivo")) {           
+        if (lb_empleado1.getText().contentEquals("Inactivo")) {
             System.out.println("Tamano de co: " + Ordenes.getTamano());
             for (int i = 0; i < Ordenes.getTamano(); i++) {
                 if (Ordenes.estaVacia()) {
                     JOptionPane.showMessageDialog(null, "No hay ingredientes suficientes");
                     break;
-                }else{
+                } else {
                     //pi.pop(); pi para sacar ingredientes
                 }
                 //tiempo_prep += Ordenes.peek(i).getProductos().get(i); no puedo agarrar tiempo de ensamblado
-                
+
+            }
+            int Tiempo1 = 0, NumOrden = 0;
+            for (int i = 0; i < this.Ordenes.extraer().Productos.getSize(); i++) {
+                Ordenes tmp = this.Ordenes.extraer();
+                Tiempo1 += ((Producto) tmp.Productos.get(i)).getTiempoEnsamblado();
+                NumOrden = tmp.getNum();
             }
             lb_empleado1.setText("Activo");
-            //AdministrarBarra ab = new AdministrarBarra(jProgressBar1, tiempo_prep, lb_empleado1, num_orden);
-            //ab.start();
+            AdministrarBarra ab = new AdministrarBarra(jProgressBar1, Tiempo1, lb_empleado1, NumOrden);
+            ab.start();
             txt_1.setText(String.valueOf(num_orden));
-            jd_ver_ensamblaje.pack();
             jd_ver_ensamblaje.setModal(true);
+            jd_ver_ensamblaje.pack();
             jd_ver_ensamblaje.setVisible(true);
         }
     }//GEN-LAST:event_jButton3MouseClicked
