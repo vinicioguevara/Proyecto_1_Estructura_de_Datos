@@ -1794,6 +1794,107 @@ public class Principal extends javax.swing.JFrame {
             jd_ver_ensamblaje.setModal(true);
             jd_ver_ensamblaje.pack();
             jd_ver_ensamblaje.setVisible(true);
+        }else if (lbl_empleado2.getText().contentEquals("Inactivo")) {
+            System.out.println("Tamano de co: " + Ordenes.getTamano());
+            for (int i = 0; i < Ordenes.getTamano(); i++) {
+                if (Ordenes.estaVacia()) {
+                    JOptionPane.showMessageDialog(null, "No hay ingredientes suficientes");
+                    break;
+                } else {
+                    //pi.pop(); pi para sacar ingredientes
+                }
+                //tiempo_prep += Ordenes.peek(i).getProductos().get(i); no puedo agarrar tiempo de ensamblado
+
+            }
+            int Tiempo1 = 0, NumOrden = 0;
+            for (int i = 0; i < this.Ordenes.extraer().Productos.getSize(); i++) {
+                Ordenes tmp = this.Ordenes.extraer();
+                Tiempo1 += ((Producto) tmp.Productos.get(i)).getTiempoEnsamblado();
+                NumOrden = tmp.getNum();
+            }
+            lbl_empleado2.setText("Activo");
+            AdministrarBarra ab = new AdministrarBarra(jProgressBar2, Tiempo1, lbl_empleado2, NumOrden);
+            ab.start();
+            txt_2.setText(String.valueOf(num_orden));
+            jd_ver_ensamblaje.setModal(true);
+            jd_ver_ensamblaje.pack();
+            jd_ver_ensamblaje.setVisible(true);
+        } else if (lbl_empleado3.getText().contentEquals("Inactivo")) {
+            System.out.println("Tamano de co: " + Ordenes.getTamano());
+            for (int i = 0; i < Ordenes.getTamano(); i++) {
+                if (Ordenes.estaVacia()) {
+                    JOptionPane.showMessageDialog(null, "No hay ingredientes suficientes");
+                    break;
+                } else {
+                    //pi.pop(); pi para sacar ingredientes
+                }
+                //tiempo_prep += Ordenes.peek(i).getProductos().get(i); no puedo agarrar tiempo de ensamblado
+
+            }
+            int Tiempo1 = 0, NumOrden = 0;
+            for (int i = 0; i < this.Ordenes.extraer().Productos.getSize(); i++) {
+                Ordenes tmp = this.Ordenes.extraer();
+                Tiempo1 += ((Producto) tmp.Productos.get(i)).getTiempoEnsamblado();
+                NumOrden = tmp.getNum();
+            }
+            lbl_empleado3.setText("Activo");
+            AdministrarBarra ab = new AdministrarBarra(jProgressBar3, Tiempo1, lbl_empleado3, NumOrden);
+            ab.start();
+            txt_3.setText(String.valueOf(num_orden));
+            jd_ver_ensamblaje.setModal(true);
+            jd_ver_ensamblaje.pack();
+            jd_ver_ensamblaje.setVisible(true);
+        }else if (lbl_empleado4.getText().contentEquals("Inactivo")) {
+            System.out.println("Tamano de co: " + Ordenes.getTamano());
+            for (int i = 0; i < Ordenes.getTamano(); i++) {
+                if (Ordenes.estaVacia()) {
+                    JOptionPane.showMessageDialog(null, "No hay ingredientes suficientes");
+                    break;
+                } else {
+                    //pi.pop(); pi para sacar ingredientes
+                }
+                //tiempo_prep += Ordenes.peek(i).getProductos().get(i); no puedo agarrar tiempo de ensamblado
+
+            }
+            int Tiempo1 = 0, NumOrden = 0;
+            for (int i = 0; i < this.Ordenes.extraer().Productos.getSize(); i++) {
+                Ordenes tmp = this.Ordenes.extraer();
+                Tiempo1 += ((Producto) tmp.Productos.get(i)).getTiempoEnsamblado();
+                NumOrden = tmp.getNum();
+            }
+            lbl_empleado4.setText("Activo");
+            AdministrarBarra ab = new AdministrarBarra(jProgressBar4, Tiempo1, lbl_empleado4, NumOrden);
+            ab.start();
+            txt_4.setText(String.valueOf(num_orden));
+            jd_ver_ensamblaje.setModal(true);
+            jd_ver_ensamblaje.pack();
+            jd_ver_ensamblaje.setVisible(true);
+        }
+        else if (lbl_empleado5.getText().contentEquals("Inactivo")) {
+            System.out.println("Tamano de co: " + Ordenes.getTamano());
+            for (int i = 0; i < Ordenes.getTamano(); i++) {
+                if (Ordenes.estaVacia()) {
+                    JOptionPane.showMessageDialog(null, "No hay ingredientes suficientes");
+                    break;
+                } else {
+                    //pi.pop(); pi para sacar ingredientes
+                }
+                //tiempo_prep += Ordenes.peek(i).getProductos().get(i); no puedo agarrar tiempo de ensamblado
+
+            }
+            int Tiempo1 = 0, NumOrden = 0;
+            for (int i = 0; i < this.Ordenes.extraer().Productos.getSize(); i++) {
+                Ordenes tmp = this.Ordenes.extraer();
+                Tiempo1 += ((Producto) tmp.Productos.get(i)).getTiempoEnsamblado();
+                NumOrden = tmp.getNum();
+            }
+            lbl_empleado5.setText("Activo");
+            AdministrarBarra ab = new AdministrarBarra(jProgressBar5, Tiempo1, lbl_empleado5, NumOrden);
+            ab.start();
+            txt_5.setText(String.valueOf(num_orden));
+            jd_ver_ensamblaje.setModal(true);
+            jd_ver_ensamblaje.pack();
+            jd_ver_ensamblaje.setVisible(true);
         }
     }//GEN-LAST:event_jButton3MouseClicked
 
