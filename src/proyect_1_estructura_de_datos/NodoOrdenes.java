@@ -10,32 +10,30 @@ package proyect_1_estructura_de_datos;
  * @author jordi
  */
 public class NodoOrdenes {
-    Ordenes orden = null;
+    Ordenes orden;
     NodoOrdenes next;
     
     
 
-    public NodoOrdenes(Ordenes orden){
-        this.orden=orden;
+    public NodoOrdenes(Ordenes orden) {
+        this.orden = orden;
+        this.next = null;
     }
-    
-    public NodoOrdenes(){
-        
-    }
-    public Ordenes getValue() {
+
+    public Ordenes getOrden() {
         return orden;
     }
 
-    public void setValue(Ordenes orden) {
+    public void setOrden(Ordenes orden) {
         this.orden = orden;
     }
 
-    public NodoOrdenes getNext() {
+    public NodoOrdenes getSiguiente() {
         return next;
     }
 
-    public void setNext(NodoOrdenes next) {
-        this.next = next;
+    public void setSiguiente(NodoOrdenes siguiente) {
+        this.next = siguiente;
     }
 
 }

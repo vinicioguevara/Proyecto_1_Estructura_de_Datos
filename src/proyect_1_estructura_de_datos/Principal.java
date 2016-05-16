@@ -142,6 +142,24 @@ public class Principal extends javax.swing.JFrame {
         jLabel33 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
         jd_ver_ensamblaje = new javax.swing.JDialog();
+        jLabel36 = new javax.swing.JLabel();
+        jLabel37 = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
+        lb_empleado1 = new javax.swing.JLabel();
+        lbl_empleado2 = new javax.swing.JLabel();
+        lbl_empleado3 = new javax.swing.JLabel();
+        lbl_empleado4 = new javax.swing.JLabel();
+        lbl_empleado5 = new javax.swing.JLabel();
+        jProgressBar5 = new javax.swing.JProgressBar();
+        jProgressBar4 = new javax.swing.JProgressBar();
+        jProgressBar3 = new javax.swing.JProgressBar();
+        jProgressBar2 = new javax.swing.JProgressBar();
+        jProgressBar1 = new javax.swing.JProgressBar();
+        txt_1 = new javax.swing.JTextField();
+        txt_2 = new javax.swing.JTextField();
+        txt_3 = new javax.swing.JTextField();
+        txt_4 = new javax.swing.JTextField();
+        txt_5 = new javax.swing.JTextField();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -1051,15 +1069,115 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
+        jLabel36.setText("Nombre del Empleado");
+
+        jLabel37.setText("Tiempo");
+
+        jLabel38.setText("# Orden");
+
+        lb_empleado1.setText("Inactivo");
+
+        lbl_empleado2.setText("Inactivo");
+
+        lbl_empleado3.setText("Inactivo");
+
+        lbl_empleado4.setText("Inactivo");
+
+        lbl_empleado5.setText("Inactivo");
+
+        txt_3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jd_ver_ensamblajeLayout = new javax.swing.GroupLayout(jd_ver_ensamblaje.getContentPane());
         jd_ver_ensamblaje.getContentPane().setLayout(jd_ver_ensamblajeLayout);
         jd_ver_ensamblajeLayout.setHorizontalGroup(
             jd_ver_ensamblajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(jd_ver_ensamblajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jd_ver_ensamblajeLayout.createSequentialGroup()
+                    .addGap(13, 13, 13)
+                    .addGroup(jd_ver_ensamblajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jd_ver_ensamblajeLayout.createSequentialGroup()
+                            .addComponent(jLabel36)
+                            .addGap(52, 52, 52)
+                            .addComponent(jLabel37)
+                            .addGap(94, 94, 94)
+                            .addComponent(jLabel38))
+                        .addGroup(jd_ver_ensamblajeLayout.createSequentialGroup()
+                            .addComponent(lb_empleado1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(32, 32, 32)
+                            .addComponent(txt_1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jd_ver_ensamblajeLayout.createSequentialGroup()
+                            .addComponent(lbl_empleado2, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jProgressBar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(33, 33, 33)
+                            .addComponent(txt_2, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jd_ver_ensamblajeLayout.createSequentialGroup()
+                            .addGroup(jd_ver_ensamblajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lbl_empleado3, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lbl_empleado4, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lbl_empleado5, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jd_ver_ensamblajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jProgressBar4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jProgressBar3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jProgressBar5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(32, 32, 32)
+                            .addGroup(jd_ver_ensamblajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txt_5, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txt_3, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txt_4, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addContainerGap(14, Short.MAX_VALUE)))
         );
         jd_ver_ensamblajeLayout.setVerticalGroup(
             jd_ver_ensamblajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(jd_ver_ensamblajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jd_ver_ensamblajeLayout.createSequentialGroup()
+                    .addGap(54, 54, 54)
+                    .addGroup(jd_ver_ensamblajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_ver_ensamblajeLayout.createSequentialGroup()
+                            .addGroup(jd_ver_ensamblajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel36)
+                                .addComponent(jLabel37)
+                                .addComponent(jLabel38))
+                            .addGap(12, 12, 12)
+                            .addGroup(jd_ver_ensamblajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lb_empleado1)
+                                .addComponent(txt_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(18, 18, 18)
+                            .addGroup(jd_ver_ensamblajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jProgressBar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txt_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lbl_empleado2, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addGap(18, 18, 18)
+                    .addGroup(jd_ver_ensamblajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jd_ver_ensamblajeLayout.createSequentialGroup()
+                            .addComponent(txt_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(txt_4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jd_ver_ensamblajeLayout.createSequentialGroup()
+                            .addGap(6, 6, 6)
+                            .addGroup(jd_ver_ensamblajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jProgressBar3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lbl_empleado3))
+                            .addGap(18, 18, 18)
+                            .addGroup(jd_ver_ensamblajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lbl_empleado4)
+                                .addComponent(jProgressBar4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGap(12, 12, 12)
+                    .addGroup(jd_ver_ensamblajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jProgressBar5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lbl_empleado5)
+                        .addComponent(txt_5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addContainerGap(54, Short.MAX_VALUE)))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -1644,6 +1762,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
         // TODO add your handling code here:
+        double tiempo_prep=0;
         int num_orden = Integer.parseInt(txt_num_orden.getText());
         DefaultTableModel modelo = (DefaultTableModel) jt_productos_orden.getModel();
         LinkedList temp = new LinkedList();
@@ -1651,7 +1770,27 @@ public class Principal extends javax.swing.JFrame {
             temp = (LinkedList) jt_productos_orden.getValueAt(i, 1);
         }
         Ordenes.insertar(new Ordenes(num_orden, temp));
-
+        if (lb_empleado1.getText().contentEquals("Inactivo")) {
+            System.out.println("Entra a if de inactivo");
+            System.out.println("Tamano de co: " + Ordenes.getTamano());
+            for (int i = 0; i < Ordenes.getTamano(); i++) {
+                if (Ordenes.estaVacia()) {
+                    JOptionPane.showMessageDialog(null, "No hay ingredientes suficientes");
+                    break;
+                }else{
+                    //pi.pop(); pi para sacar ingredientes
+                }
+                //tiempo_prep += Ordenes.peek(i).getProductos().get(i); no puedo agarrar tiempo de ensamblado
+                
+            }
+            lb_empleado1.setText("Activo");
+            //AdministrarBarra ab = new AdministrarBarra(jProgressBar1, tiempo_prep, lb_empleado1, num_orden);
+            //ab.start();
+            txt_1.setText(String.valueOf(num_orden));
+            jd_ver_ensamblaje.pack();
+            jd_ver_ensamblaje.setModal(true);
+            jd_ver_ensamblaje.setVisible(true);
+        }
     }//GEN-LAST:event_jButton3MouseClicked
 
     private void btn_eliminar_ordenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_eliminar_ordenMouseClicked
@@ -1660,6 +1799,10 @@ public class Principal extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Empleado Despedido Correctamente");
         this.cb_eliminar_empleado.removeItemAt(cb_eliminar_empleado.getSelectedIndex());
     }//GEN-LAST:event_btn_eliminar_ordenMouseClicked
+
+    private void txt_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1738,6 +1881,9 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1766,6 +1912,11 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
+    private javax.swing.JProgressBar jProgressBar1;
+    private javax.swing.JProgressBar jProgressBar2;
+    private javax.swing.JProgressBar jProgressBar3;
+    private javax.swing.JProgressBar jProgressBar4;
+    private javax.swing.JProgressBar jProgressBar5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -1791,6 +1942,11 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTable jt_ver_materiales;
     private javax.swing.JTable jt_ver_nomina_empleados;
     private javax.swing.JTable jt_ver_productos;
+    private javax.swing.JLabel lb_empleado1;
+    private javax.swing.JLabel lbl_empleado2;
+    private javax.swing.JLabel lbl_empleado3;
+    private javax.swing.JLabel lbl_empleado4;
+    private javax.swing.JLabel lbl_empleado5;
     private javax.swing.JButton materialAgregarBotonGuardar;
     private javax.swing.JTextField materialAgregarDescripcion;
     private javax.swing.JTextField materialAgregarMarca;
@@ -1815,6 +1971,11 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JSpinner sp_edad_empleado_modificar;
     private javax.swing.JSpinner sp_salario_empleado;
     private javax.swing.JSpinner sp_salario_empleado_modificar;
+    private javax.swing.JTextField txt_1;
+    private javax.swing.JTextField txt_2;
+    private javax.swing.JTextField txt_3;
+    private javax.swing.JTextField txt_4;
+    private javax.swing.JTextField txt_5;
     private javax.swing.JTextField txt_direccion_empleado;
     private javax.swing.JTextField txt_direccion_empleado_modificar;
     private javax.swing.JTextField txt_id_empleado;

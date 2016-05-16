@@ -10,10 +10,11 @@ package proyect_1_estructura_de_datos;
  * @author jordi
  */
 public class ColaOrdenes {
+
     private NodoOrdenes inicio;
     private NodoOrdenes termino;
     private int tamano;
-    
+
     public ColaOrdenes() {
         inicio = null;
         termino = null;
@@ -27,22 +28,32 @@ public class ColaOrdenes {
     public void setTamano(int tamano) {
         this.tamano = tamano;
     }
-    
+
+    public Ordenes peek(int pos) {
+        int tempNum = 0;
+        NodoOrdenes temp = inicio;
+        while (tempNum != pos) {
+            temp = temp.getSiguiente();
+            tempNum++;
+        }
+        return temp.getOrden();
+    }
+
     public void insertar(Ordenes ordenes) {
         NodoOrdenes i = new NodoOrdenes(ordenes);
-        i.setNext(null);
+        i.setSiguiente(null);
         if (inicio == null & termino == null) {
             inicio = i;
             termino = i;
         }
-        termino.setNext(i);
-        termino = termino.getNext();
+        termino.setSiguiente(i);
+        termino = termino.getSiguiente();
         tamano++;
     }
 
     public Ordenes extraer() {
-        Ordenes datos = inicio.getValue();
-        inicio = inicio.getNext();
+        Ordenes datos = inicio.getOrden();
+        inicio = inicio.getSiguiente();
         tamano--;
         return datos;
     }
@@ -64,7 +75,7 @@ public class ColaOrdenes {
         NodoOrdenes cola = this.inicio;
         while (cola != null) {
             contador++;
-            cola = cola.getNext();
+            cola = cola.getSiguiente();
         }
         System.out.println("Numero de datos en la cola: " + contador);
         return contador;
@@ -76,10 +87,9 @@ public class ColaOrdenes {
         String stri = "";
         while (cola != null) {
             stri = stri + cola.toString();
-            cola = cola.getNext();
+            cola = cola.getSiguiente();
         }
         return stri;
     }
-
 
 }
